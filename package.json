@@ -1,0 +1,18 @@
+{
+  "name": "weble-ws-proxy",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "amqp": "^0.2.7",
+    "amqplib": "^0.5.5",
+    "exec-php": "0.0.5",
+    "minimist": "^1.2.0",
+    "rabbitmq": "0.0.2",
+    "request": "^2.88.2",
+    "socket.io": "^2.3.0",
+    "uuid": "^3.4.0"
+  }
+}
