@@ -1,2 +1,0 @@
-# weble
-social app
