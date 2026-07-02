@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" id="music" viewBox="0 0 24 24">
+    <defs>
+        <style>
+            .cls-1{fill:none}.cls-2{fill:#278ec4}
+        </style>
+    </defs>
+    <g id="Layer_1" data-name="Layer 1">
+        <path id="Rectangle_287" d="M0 0h24v24H0z" class="cls-1" data-name="Rectangle 287"/>
+        <path id="Path_234" d="M19.4 8.82a.74.74 0 0 0-.75.75v4.21a3.73 3.73 0 1 0 1.5 3 2.73 2.73 0 0 0-.06-.5.71.71 0 0 0 .06-.25V9.57a.75.75 0 0 0-.75-.75zM16.4 19a2.24 2.24 0 1 1 1.59-.653A2.25 2.25 0 0 1 16.4 19z" class="cls-2" data-name="Path 234"/>
+        <path id="Path_235" d="M20.15 2a.75.75 0 0 0-.34-.62.73.73 0 0 0-.7-.07L8.31 5.75a.75.75 0 0 0-.46.7V16a3.69 3.69 0 0 0-2.25-.77A3.75 3.75 0 1 0 9.35 19v-8.68l10.33-4.26a.74.74 0 0 0 .44-.84.66.66 0 0 0 0-.15zM5.6 21.25A2.25 2.25 0 1 1 7.85 19a2.25 2.25 0 0 1-2.25 2.25zM9.35 7l9.3-3.83v1.7L9.35 8.7z" class="cls-2" data-name="Path 235"/>
+    </g>
+</svg>

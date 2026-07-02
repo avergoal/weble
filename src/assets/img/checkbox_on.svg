@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" id="checkbox_on" width="24" height="24" viewBox="0 0 24 24">
+    <defs>
+        <style>
+            .cls-1{fill:none}.cls-2{fill:#278ec4}
+        </style>
+    </defs>
+    <g id="Layer_1" data-name="Layer 1">
+        <path id="Rectangle_307" d="M0 0h24v24H0z" class="cls-1" data-name="Rectangle 307"/>
+        <path id="Path_258" d="M18.46 3H5.54A2.54 2.54 0 0 0 3 5.54v12.92A2.54 2.54 0 0 0 5.54 21h12.92A2.54 2.54 0 0 0 21 18.46V5.54A2.54 2.54 0 0 0 18.46 3zm-.62 5.51l-8 8a.73.73 0 0 1-.49.2.7.7 0 0 1-.49-.2l-2.7-2.77a.707.707 0 0 1 1-1L9.39 15l7.47-7.47a.707.707 0 1 1 1 1z" class="cls-2" data-name="Path 258"/>
+    </g>
+</svg>

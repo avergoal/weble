@@ -1,0 +1,80 @@
+<div class="pers_page_color  main-edit-profile ">
+  <div class="personal_page user-profile" *ngIf="profile">
+    <div class="pers_page_top">
+      <div class="row">
+        <div class="pers_top_top">
+          <div class="pers_img">
+            <img src="{{profile.avatar}}" alt="">
+          </div>
+          <div class="write_message">
+            <a class="link_footer" [routerLink]="['/dialog',_id]"></a>
+          </div>
+          <a (click)="cancel()" class="arrow_exit_link"><span class="arrow_exit"></span></a>
+          <div class="pers_name">
+            <div class="pers_name_text">
+              {{profile.username}}
+            </div>
+          </div>
+          <div class="subscribe_group column_centr" [ngClass]="{'subscribe-btn':!profile.is_subscriber}">
+            <div class="check_text_groups left_centr">
+              <div class="check_groups"></div>
+              <div class="text_groups"
+                   (click)="subscribe()">{{(!profile.is_subscriber ? ('Subscribe'|translate) : ('Unsubscribe'|translate))}}</div>
+
+            </div>
+          </div>
+        </div>
+        <div class="personal_activity">
+          <div class="pers_activ_number">
+            <div class="publications_icon m_b_8"></div>
+            <div class="number_publications number_style">{{profile.posts}}</div>
+            <div
+              class="publications_text pers_text_style">{{dataService.declination(profile.posts, 'publication')|translate}}</div>
+          </div>
+
+          <div class="pers_activ_number my_subscr"
+               (click)="router.navigateByData({url:['/subscribers'],data:{type:'profile',id:this._id}});">
+            <div class="signer_icon m_b_8"></div>
+            <div class="number_signer number_style">{{profile.subscribers}}</div>
+            <div
+              class="signer_text pers_text_style">{{dataService.declination(profile.subscribers, 'subscriber')|translate}}</div>
+          </div>
+
+          <div class="pers_activ_number my_subscrip"
+               (click)="router.navigateByData({url:['/subscriptions'],data:this._id});">
+            <div class="subscribe_icon m_b_8"></div>
+            <div class="number_subscribe number_style">{{profile.subscriptions}}</div>
+            <div
+              class="subscribe_text pers_text_style">{{dataService.declination(profile.subscriptions, 'subscription')|translate}}</div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <div class="personal_content">
+      <div class="choice_pers_content">
+        <div class="my_content" [ngClass]="{'active':activeTab=='posts'}" (click)="activeTab='posts'">{{'Posts'|translate}}</div>
+        <div class="my_content" [ngClass]="{'active':activeTab=='pers'}" (click)="activeTab='pers'">{{'Comments'|translate}}</div>
+      </div>
+      <div class="tabs_pers active" *ngIf="activeTab=='posts'"
+           infinite-scroll
+           [infiniteScrollContainer]="'.personal_page'"
+           [fromRoot]="true"
+           (scrolled)="getPost()"
+      >
+        <app-post-view *ngFor="let post of posts"
+                       [post]="post"
+        ></app-post-view>
+      </div>
+      <div class="tabs_pers active" *ngIf="activeTab=='pers'">
+        <app-pers-coment [user_id]="_id"></app-pers-coment>
+      </div>
+      <div class="tabs_pers active"*ngIf="activeTab=='notice'">
+        <app-pers-notify [user_id]="_id"></app-pers-notify>
+      </div>
+    </div>
+  </div>
+  <app-footer></app-footer>
+</div>
+
+

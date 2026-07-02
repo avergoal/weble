@@ -1,0 +1,77 @@
+<div id="view_dialogs">
+  <div class="messages_footer distribution" >
+    <div class="row">
+      <div class="page_top chat_top center_edges">
+        <div class="w-full left_centr">
+          <div class="arrow_exit">
+            <a  class="link_footer" (click)="_location.back()" ) ></a>
+            <!--onclick="javascript:history.back(); return false;"-->
+          </div>
+          <div class="interlocutor-b m_r_16">
+            <div class="interlocutor_icon">
+              <img src="/assets/img/women.jpg" alt="">
+            </div>
+            <div class="interlocutor_icon">
+              <img src="/assets/img/women.jpg" alt="">
+            </div>
+          </div>
+          <div class="foreing_chat center_edges">
+            <div class="interlocutor_chat">
+              <p>Светлана, Мария</p>
+              <p class="gray_color">3 в сети</p>
+            </div>
+            <div class="chat-icon center_edges" [routerLink]="['/group_chat_info_r']" >
+              <div class="info_img ic" ></div>
+              <div class="sending_messages ic"></div>
+            </div>
+          </div>
+        </div>
+        <div class="search_group center_edges m_t13">
+          <div class="entry_search_perent">
+            <input class="entry_search" placeholder="Имя группы" type="text">
+          </div>
+          <div class="cross_exit"></div>
+        </div>
+      </div>
+
+
+      <span *ngIf="newDialog">
+            <label *ngFor="let user of subscribers" class="checkbox_messages distribution">
+            <input type="checkbox"/>
+            <div class="chec_messs_text">
+              <div class="center_edges">
+                <div class="found_option left_centr">
+                  <div class="post_icon">
+                    <img src="{{user.avatar}}" alt="">
+                  </div>
+                  <div class="found_text">
+                    <div class="find_name">
+                      <p>{{user.username}}</p>
+                    </div>
+                    <div class="find_number">
+                      <p>{{help.timeOutGenerate(user.time)}}</p>
+                    </div>
+                  </div>
+                  <a class="found_option_link" href="#"></a>
+                </div>
+              </div>
+              <div class="click_messages"></div>
+            </div>
+          </label>
+        </span>
+
+
+      <div class="writing_message anti_row" [ngClass]="{'active':newDialog}">
+        <div class="attach_img"></div>
+
+        <textarea name="text" class="textarea_messages" type="text"
+                  placeholder="Напишите сообщение"></textarea>
+        <div class="send_message_perent">
+          <input class="send_message" type="button" (click)="sendMessage()" value="Отправить">
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>

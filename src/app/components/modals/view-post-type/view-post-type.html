@@ -1,0 +1,53 @@
+<div class="types_posts_choice modal active" *ngIf="mS.viewPostType.view">
+  <div class="modal_opacity" (click)="mS.viewPostType.view = false"></div>
+  <div class="view_modal">
+    <div class="row">
+      <div class="the_choice">
+        <label class="checkbox_messages view_classic " [ngClass]="{'active':mS.viewPostType.type==''}" (click)="mS.viewPostType.type='';mS.viewPostType.view=false;save(0)">
+          <input type="radio" name="changes-post" checked>
+          <div class="chec_messs_text">
+            <div class="center_edges">
+              <div class="found_option left_centr">
+                <div class="type_posts">
+                  <div class="two_rectangles m_r_25"></div>
+                  <div class="classic_text">{{'typeViwePost._0'|translate}}</div>
+                </div>
+              </div>
+            </div>
+            <div class="tick_type_png"></div>
+          </div>
+        </label>
+        <label class="checkbox_messages view_miniatures" [ngClass]="{'active':mS.viewPostType.type=='miniature'}" (click)="mS.viewPostType.type='miniature';mS.viewPostType.view=false;save(1)">
+          <input type="radio" name="changes-post">
+          <div class="chec_messs_text">
+            <div class="center_edges">
+              <div class="found_option left_centr">
+                <div class="type_posts">
+                  <div class="miniatures_tabs m_r_25">
+                    <div class="miniatures_tabs_add"></div>
+                  </div>
+                  <div class="classic_text">{{'typeViwePost._1'|translate}}</div>
+                </div>
+              </div>
+            </div>
+            <div class="tick_type_png"></div>
+          </div>
+        </label>
+        <label class="checkbox_messages view_text"  [ngClass]="{'active':mS.viewPostType.type=='text-view'}"  (click)="mS.viewPostType.type='text-view';mS.viewPostType.view=false;save(2)">
+          <input type="radio" name="changes-post">
+          <div class="chec_messs_text">
+            <div class="center_edges">
+              <div class="found_option left_centr">
+                <div class="type_posts">
+                  <div class="text_tabs m_r_25"></div>
+                  <div class="classic_text">{{'typeViwePost._2'|translate}}</div>
+                </div>
+              </div>
+            </div>
+            <div class="tick_type_png"></div>
+          </div>
+        </label>
+      </div>
+    </div>
+  </div>
+</div>

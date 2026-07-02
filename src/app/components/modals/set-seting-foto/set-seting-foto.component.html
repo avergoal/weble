@@ -1,0 +1,23 @@
+<div class="add_photo modal">
+
+  <div class="modal_opacity"></div>
+  <div class="add_photo_modal minModal">
+    <div class="box-img">
+      <img src="{{img.url}}" alt="">
+    </div>
+    <div class="wrapNewInput">
+      <input type="text" placeholder="{{'Description'|translate}}" [(ngModel)]="img.name">
+      <p class="NewInputText gray_color f-rubik fz-12">{{'Description'|translate}}</p>
+    </div>
+    <div class="wrap-character-count mb28">
+      <div class="character-count gray-text"> {{img.name.length}} </div>
+      <div class="gray-text"> /140 </div>
+    </div>
+    <div class="complain_modal_bottom">
+      <div class="unsubscribe_posit" (click)="cancel.emit()">{{'Cancel'|translate}}</div>
+      <div class="wrap-btn">
+        <input class="blue-btn" type="button" value="{{'Send'|translate}}" (click)="newImg.emit(img)">
+      </div>
+    </div>
+  </div>
+</div>

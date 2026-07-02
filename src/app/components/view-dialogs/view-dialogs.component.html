@@ -1,0 +1,112 @@
+<div class="main-messages_footer  main-scroll" id="view_dialogs">
+    <div class="messages_footer" [ngClass]="{'distribution':newDialog}">
+
+        <div class="create_post_top center_edges m_b_0">
+            <!--при клике на плюсик добавить distribution к messages_footer и checkbox_messages-->
+            <div class="create_post_top_left left_centr ">
+                <span class="arrow_exit" (click)="setNewDialog()"></span>
+                <div class="arrow_exit_text">{{'Messages'|translate}}</div>
+                <div class="new_messages">{{'New_message'|translate}}</div>
+            </div>
+            <div class="sending_messages ic" (click)="setNewDialog()"></div>
+            <!--<div class="sending_messages ic" [routerLink]="['/create_group_chat']"></div>-->
+            <!-- [routerLink]="['/create-group-chat']"-->
+        </div>
+
+        <!--<div class="sending_messages ic" (click)="setNewDialog()" ></div>-->
+        <!--<div class="sending_messages ic" [routerLink]="['/create-group-chat']" ></div>-->
+
+
+        <div class="search_group_perent left_centr">
+            <div class="row">
+                <div class="search_group left_centr">
+                    <div class="search_img_perents">
+                        <input class="search_img" type="submit">
+                    </div>
+                    <div class="entry_search_perent">
+                        <input class="entry_search" placeholder="{{'Search'|translate}}" [(ngModel)]="filterText"
+                               type="text">
+                    </div>
+
+                </div>
+                <span class="w-full" *ngIf="!newDialog">
+          <label class="checkbox_messages newChecMess menOnl" [ngClass]="{'distribution':newDialog}"
+                 *ngFor="let dialog of filter(mS.dialogs)">
+
+          <div class="chec_messs_text" (click)="incPmDialog(dialog)" [routerLink]="['/dialog',dialog.id]">
+            <div class="center_edges">
+              <div class="found_option top_edges">
+                <div class="post_icon " [ngClass]="{'online':dataService.isOnline(dialog.id)}">
+                  <img *ngFor="let img of dialog.avatars" src="{{setAvatar(img)}}">
+                </div>
+                <div class="found_text">
+                  <div class="find_name center_edges">
+                    <p><span>@</span>{{dialog.title}} </p>
+                      <div class="readTime center_edges">
+                          <div [ngClass]="{'quanMesBl':dialog.last_message.status==0||dialog.new_messages&&dialog.new_messages>0,'oneGreenTick':dialog.last_message.status==1,'readGreenTick':dialog.last_message.status==2}">
+                              <!--TODO:когда нужно две галочки подстовлять readGreenTick кагда одна oneGreenTick когда выводится количество сообщений quanMesBl-->
+
+                              <span class="quantityMes" *ngIf="dialog.new_messages>0">{{dialog.new_messages}}</span>
+                          </div>
+                          <div class="readTimeText">
+                              <p class="fz-12 f-rubik">{{help.timeOutGenerate(dialog.last_message.created_at)}}</p>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="find_number">
+                    <p>{{help.timeOutGenerate(dialog.last_message.created_at)}}</p>
+                  </div>
+                    <div class="mesBlock">
+                        <p class="fz-14 f-rubik">
+                           {{dialog.last_message.text}}
+                        </p>
+                    </div>
+                </div>
+                  <!--<a class="found_option_link" [routerLink]="['/dialog',dialog.chat_id]"></a>-->
+              </div>
+            </div>
+            <div class="click_messages"></div>
+          </div>
+        </label>
+        </span>
+                <span class="w-full" *ngIf="newDialog">
+            <label *ngFor="let user of filter(subscribers)" class="checkbox_messages distribution">
+            <input type="checkbox" (change)="setUserFromMessage(user,$event)"/>
+            <div class="chec_messs_text">
+              <div class="center_edges">
+                <div class="found_option left_centr">
+                  <div class="post_icon">
+                    <img src="{{user.avatar}}" alt="">
+                  </div>
+                  <div class="found_text">
+                    <div class="find_name">
+                      <p>{{user.username}}</p>
+                    </div>
+                    <div class="find_number">
+                      <p>{{help.timeOutGenerate(user.time)}}</p>
+                    </div>
+                  </div>
+                    <!--<a class="found_option_link" href="#"></a>-->
+                </div>
+              </div>
+              <div class="click_messages"></div>
+            </div>
+          </label>
+        </span>
+
+            </div>
+
+        </div>
+        <div class="writing_message anti_row" [ngClass]="{'active':newDialog}">
+            <!--<div class="attach_img"></div>-->
+
+            <textarea name="text" class="textarea_messages" type="text"
+                      placeholder="{{'Write_a_message'|translate}}" [(ngModel)]="textFromAllUsers"></textarea>
+            <div class="send_message_perent" (click)="sendMessage()">
+                <input class="send_message" type="button" value="{{'Send'|translate}}">
+            </div>
+        </div>
+    </div>
+    <app-footer></app-footer>
+</div>
+

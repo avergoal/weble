@@ -1,0 +1,55 @@
+<div class="tabs__caption">
+
+    <div class="pasiv" [ngClass]="{'active':type==0}" (click)="type=0;clposts()"
+         [routerLink]="[user.auth?user.profile.subscriptions==0?'/search_chennel':'/main':'/join']">{{'Main'|translate}}</div>
+    <div class="pasiv" [ngClass]="{'active':type==1}" (click)="type=1;;clposts()"
+         [routerLink]="['/main-popular']">{{'Popular'|translate}}</div>
+
+</div>
+<div class="gray_bar">
+    <div class="row">
+        <div class="gray_bar_all">
+            <div class="gray_bar_left">
+                <a class="beginning_course" (click)="mS.filterTimeModal.view = true;">
+                    <span class="main_course"></span>
+                    <span class="course">{{'timeFileter.'+mS.filterTimeModal.type|translate}}</span>
+                    <span class="tick_course"></span>
+                </a>
+                <!--<a class="beginning_near" href="#">-->
+                <!--<span class="near_img"></span>-->
+                <!--<span class="near_text">{{'new'|translate}} </span>-->
+                <!--</a>-->
+            </div>
+            <div class="gray_bar_right">
+                <div class="home-moderator" (click)="clposts()" *ngIf="modS.notifyArr.length>0">
+                    <div class="circle-moderator" >
+                        {{modS.notifyArr.length}}
+                    </div>
+                </div>
+                <div class="two_rectangles {{mS.viewPostType.type}}" (click)="mS.viewPostType.view = true">
+                    <div class="miniatures_tabs_add"></div>
+                </div>
+                <div class="miniatures_tabs">
+                    <div class="miniatures_tabs_add"></div>
+                </div>
+                <div class="text_tabs"></div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<div class="post_line"  *ngIf="modS.notifyArr.length>0">
+    <div class="post_entry left_centr moderator-mode" >
+        <div class="moderBox left_centr" *ngFor="let item of modS.notifyArr" [ngClass]="{'active':modS.activeModCh_id===(item.id||item.channel_id)}" (click)="getNotifyPosts(item.id||item.channel_id)">
+            <p>~{{item.name||'item.name'}}111</p>
+            <div class="quanPost">
+                <p>{{item.notifications}}</p>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<app-post-view *ngFor="let post of modS.modposts" [moderate]="true"
+               [post]="post"
+></app-post-view>

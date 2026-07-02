@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+    <defs>
+        <style>
+            .cls-1{fill:none}.cls-2{fill:#648895}
+        </style>
+    </defs>
+    <g id="flash" transform="translate(-60 -446)">
+        <path id="Rectangle_229" d="M0 0h24v24H0z" class="cls-1" data-name="Rectangle 229" transform="translate(60 446)"/>
+        <g id="Group_453" data-name="Group 453" transform="translate(65.975 448.026)">
+            <path id="Path_188" d="M5.258 19.974h-.219c-.329-.1-.658-.309-.658-.721v-6.589H.765a.675.675 0 0 1-.658-.309.831.831 0 0 1 0-.721L6.463.413A.758.758 0 0 1 7.34 0a.779.779 0 0 1 .548.721v6.59h3.4a.675.675 0 0 1 .658.309.831.831 0 0 1 0 .721L5.915 19.562a.685.685 0 0 1-.657.412zM2.08 11.223h3.068a.727.727 0 0 1 .767.721v4.221L9.97 8.752H7.121a.727.727 0 0 1-.767-.721V3.707z" class="cls-2" data-name="Path 188"/>
+        </g>
+    </g>
+</svg>

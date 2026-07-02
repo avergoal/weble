@@ -1,0 +1,52 @@
+<div class="content" >
+
+  <div class="forgot_password_madal"  *ngIf="!isSend">
+    <a class="posit_arrow"  [routerLink]="['/login']"><span class="arrow_exit"></span></a>
+    <div class="doorway_weble  posit_forgot">
+
+        <div class="column_centr">
+          <div class="top-login">
+            <div class="doorway_weble_icon"></div>
+            <div class="doorway_weble_text mb16">
+              <h6>{{'Password_recovery'|translate}}</h6>
+            </div>
+            <div class="forgot_password_text mb56">
+              <p>{{'EntrEmlToAccess'|translate}}</p>
+            </div>
+            <div class="doorway_input_block">
+              <div class="doorway_input_mail">
+                <div class="input-text">{{'E_mail'|translate}}</div>
+                <input class="doorway_input" [(ngModel)]="email" placeholder="{{'E_mail'|translate}}" type="email">
+              </div>
+            </div>
+          </div>
+          <div class="bottom-login">
+            <div class="perent_send_weble">
+              <input class="input_enter_weble" value="{{'Send'|translate}}" type="button" (click)="remid()">
+            </div>
+          </div>
+        </div>
+
+    </div>
+  </div>
+
+  <div class="link_send_madal" *ngIf="isSend">
+    <a class="posit_arrow"   [routerLink]="['/login']"><span class="arrow_exit"></span></a>
+    <div class="doorway_weble  posit_send">
+        <div class="column_centr">
+          <div class="top-login">
+            <div class="doorway_weble_icon mb60"></div>
+            <div class="done_big"></div>
+            <div class="doorway_weble_text mb16">
+              <h6> {{'Link_sent'|translate}}</h6>
+            </div>
+            <div class="forgot_password_text link_send_width">
+              <p>{{'clickLinkFnPass'|translate}}</p>
+            </div>
+          </div>
+        </div>
+
+    </div>
+  </div>
+</div>
+

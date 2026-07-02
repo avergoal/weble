@@ -1,0 +1,73 @@
+<div class="select_channels_post">
+    <div class="row">
+        <div class="create_post_top center_edges m_b_0">
+            <div class="create_post_top_left left_centr ">
+                <div class="cross_exit">
+                    <a class="link_footer" (click)="exit.emit(false)"></a>
+                </div>
+                <div class="arrow_exit_text">{{'Where_to_publish'|translate}}</div>
+            </div>
+            <div class="send_gallery_post">
+                <input class="tick_gallery" type="button" (click)="changeChannel()">
+            </div>
+        </div>
+        <div class="search_group_perent anti_row left_centr active">
+            <div class="search_group left_centr">
+                <div class="search_img_perents">
+                    <input class="search_img" type="submit">
+                </div>
+
+                <div class="entry_search_perent">
+                    <input [(ngModel)]="search_text" (keyup)="search()" class="entry_search" placeholder="{{'Search'|translate}}"
+                           type="text">
+                </div>
+            </div>
+        </div>
+        <label class="checkbox_messages">
+          <input type="radio" [value]="0" (change)="channel = {id:0}"  name="channel_id">
+            <div class="chec_messs_text m_b_15">
+                <div class="center_edges">
+                    <div class="found_option left_centr">
+                        <div class="post_icon">
+                            <img src="{{user.profile.avatar}}" alt="">
+                        </div>
+                        <div class="found_text">
+                            <div class="find_name">
+                                <p>{{'My_Page'|translate}}</p>
+                            </div>
+                            <div class="find_number">
+                                <p>{{user.profile.subscribers||0}} {{dataService.declination(user.profile.subscribers,'subscriber')|translate}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="click_messages active"></div>
+            </div>
+        </label>
+        <div class="settings_line anti_row left_centr m_b_8">{{'Channels'|translate}}</div>
+        <label class="checkbox_messages"  *ngFor="let item of searchArrFilter">
+          <input type="radio" [value]="item.id" (change)="channel = item"  name="channel_id">
+            <div class="chec_messs_text">
+                <div class="center_edges">
+                    <div class="found_option left_centr">
+                        <div class="post_icon">
+                            <img src="{{item.img}}" alt="">
+                        </div>
+                        <div class="found_text">
+                            <div class="find_name">
+                                <p><span>~</span>{{item.name}}</p>
+                            </div>
+                            <div class="find_number">
+                                <p>{{item.count}} {{dataService.declination(item.count,'subscriber')|translate}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="click_messages active"></div>
+            </div>
+        </label>
+
+
+
+    </div>
+</div>

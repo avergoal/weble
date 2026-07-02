@@ -1,0 +1,22 @@
+<div class="unsubscribe_modal modal" style="display: block">
+  <div class="modal_opacity"></div>
+  <div class="unsubscribe_block column_centr">
+
+    <div class="unsubscribe_name">{{'Selected_language'|translate}}</div>
+    <div class="unsubscribe_text box" >
+
+
+      <p [ngClass]="{'active':lang=='ru'}" (click)="lang ='ru';">{{'ru'|translate}}</p>
+      <p [ngClass]="{'active':lang=='en'}" (click)="lang ='en';">{{'en'|translate}}</p>
+      <p [ngClass]="{'active':lang=='de'}" (click)="lang ='de';">{{'de'|translate}}</p>
+      <p [ngClass]="{'active':lang=='es'}" (click)="lang ='es';">{{'es'|translate}}</p>
+      <p [ngClass]="{'active':lang=='fr'}" (click)="lang ='fr';">{{'fr'|translate}}</p>
+      <p [ngClass]="{'active':lang=='it'}" (click)="lang ='it';">{{'it'|translate}}</p>
+    </div>
+    <div class="unsubscribe_text shadow">
+      <button class="btn" (click)="closeModal()">{{'Cancel'|translate}}</button>
+      <button class="btn" (click)="setLang(lang)">OK</button>
+
+    </div>
+  </div>
+</div>

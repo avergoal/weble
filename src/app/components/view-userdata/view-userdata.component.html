@@ -1,0 +1,200 @@
+<div style="display: none">
+  {{'mon.Jan'|translate}}
+  {{'mon.Feb'|translate}}
+  {{'mon.Mar'|translate}}
+  {{'mon.Apr'|translate}}
+  {{'mon.May'|translate}}
+  {{'mon.Jun'|translate}}
+  {{'mon.Jul'|translate}}
+  {{'mon.Aug'|translate}}
+  {{'mon.Sep'|translate}}
+  {{'mon.Oct'|translate}}
+  {{'mon.Nov'|translate}}
+  {{'mon.Dec'|translate}}
+
+</div>
+<div id="view_userdata" class="settings_page bg-drk-gray h-vh">
+    <div class="row">
+        <div class="create_post_top center_edges m_b_0">
+            <div class="create_post_top_left left_centr ">
+                <span [routerLink]="['/profile']" class="arrow_exit"></span>
+                <div class="arrow_exit_text">{{'Settings'|translate}}</div>
+            </div>
+        </div>
+    </div>
+    <div class="settings_accounts NAccItem center_edges" (click)="mS.swichAccountModal.view = true">
+        <div class="post_top_left">
+            <div class="post_icon_setting">
+                <img src="{{user.profile.avatar||'assets/img/men_classic.jpg'}}" alt="">
+            </div>
+            <div class="post_settings_text">
+                <div class="pers_name_text">
+                    {{user.profile.username}}
+                </div>
+                <div class="my_accounts">
+                    <p>{{'Accounts'|translate}}</p>
+                </div>
+            </div>
+        </div>
+        <div class="tick_course" ></div>
+    </div>
+    <div class="settings_line left_centr">{{'Basic'|translate}}</div>
+    <div class="settings_background">
+        <div class="settings_personal" [routerLink]="['/view_userdata_edit']">
+            <div class="accounts_item center_edges">
+                <div class="post_top_left">
+                    <div class="personal_icon ic mr16px"></div>
+                    <div class="settings_text">{{'Personal_data'|translate}}</div>
+                </div>
+                <div class="tick_course transform_arrow"></div>
+            </div>
+        </div>
+        <div class="accounts_item center_edges" [routerLink]="['/security']">
+            <div class="post_top_left">
+                <div class="security_icon mr16px"></div>
+                <div class="settings_text">{{'Security'|translate}}</div>
+            </div>
+            <div class="tick_course transform_arrow"></div>
+            <a class="link_footer" ></a>
+        </div>
+        <div class="settings_notification" [routerLink]="['/notification']">
+            <div class="accounts_item center_edges">
+                <div class="post_top_left">
+                    <div class="notification_icon ic mr16px"></div>
+                    <div class="settings_text">{{'Notifications'|translate}}</div>
+                </div>
+                <div class="tick_course transform_arrow"></div>
+            </div>
+        </div>
+        <div class="settings_view">
+            <div class="accounts_item center_edges">
+                <div class="post_top_left">
+                    <div class="tile_icon ic mr16px"></div>
+                    <div class="settings_text">{{'Default_feed_view'|translate}}</div>
+                </div>
+                <div class="gray_bar_right">
+                    <div class="two_rectangles {{mS.viewPostType.type}}" (click)="mS.viewPostType.view = true">
+                        <div class="miniatures_tabs_add"></div>
+                    </div>
+                    <div class="miniatures_tabs">
+                        <div class="miniatures_tabs_add"></div>
+                    </div>
+                    <div class="text_tabs"></div>
+                </div>
+            </div>
+        </div>
+        <div class="anti_row settings_button">
+            <label class="checkbox_push left_centr">
+                <span class="icon-18"></span>
+                <input type="checkbox"  [checked]="user.profile.settings&&user.profile.settings.nsfw=='1'?true:false"  (change)="savensfw($event)">
+                <span class="checkbox__text"> <span class="width-text"> {{'Show_adult_content'|translate}}</span></span>
+            </label>
+        </div>
+      <!--<div class="anti_row settings_button">-->
+            <!--<label class="checkbox_push left_centr">-->
+                <!--<span class="icon-18"></span>-->
+                <!--<input type="checkbox"  [checked]="dataService.TCP"  (change)="changeTCP()">-->
+                <!--<span class="checkbox__text"> <span class="width-text">WEBSOCKET</span></span>-->
+            <!--</label>-->
+        <!--</div>-->
+        <div class="settings_personal">
+            <div class="accounts_item center_edges">
+                <div class="post_top_left">
+                    <div class="language-icon ic mr16px"></div>
+                    <div class="settings_text">{{'lang_app'|translate}}</div>
+                </div>
+                <div class="blue-text">
+                    <p (click)="setLang()">
+                        {{user.profile.settings&&user.profile.settings.lang=='ru'?(user.profile.settings.lang|translate):''}}
+                        {{user.profile.settings&&user.profile.settings.lang=='en'?(user.profile.settings.lang|translate):''}}
+                        {{user.profile.settings&&user.profile.settings.lang=='de'?(user.profile.settings.lang|translate):''}}
+                        {{user.profile.settings&&user.profile.settings.lang=='es'?(user.profile.settings.lang|translate):''}}
+                        {{user.profile.settings&&user.profile.settings.lang=='fr'?(user.profile.settings.lang|translate):''}}
+                        {{user.profile.settings&&user.profile.settings.lang=='it'?(user.profile.settings.lang|translate):''}}
+                        {{!user.profile.settings||!user.profile.settings.lang?('en'|translate):''}}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="settings_line left_centr">{{'About_app'|translate}}</div>
+    <div class="settings_background">
+        <div class="settings_agreement">
+            <div class="accounts_item center_edges">
+                <div class="post_top_left">
+                    <div class="agreement_icon ic mr16px"></div>
+                    <div class="settings_text">{{'User_agreement'|translate}}</div>
+                </div>
+                <div class="tick_course transform_arrow"></div>
+            </div>
+        </div>
+        <div class="settings_help">
+            <div class="accounts_item center_edges">
+                <div class="post_top_left">
+                    <div class="help_icon ic mr16px"></div>
+                    <div class="settings_text">{{'Help'|translate}}</div>
+                </div>
+                <div class="tick_course transform_arrow"></div>
+            </div>
+        </div>
+        <div class="settings_messages">
+            <div class="accounts_item center_edges">
+                <div class="post_top_left">
+                    <div class="messages_icon ic mr16px"></div>
+                    <div class="settings_text">{{'Report_a_bug'|translate}}</div>
+                </div>
+                <div class="tick_course transform_arrow"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="settings_line left_centr version">{{'Version'|translate}}: 0.1.2.34</div>
+
+    <!--<div class="lang_modal modal">-->
+        <!--<div class="modal_opacity"></div>-->
+        <!--<div class="box_complain_modal">-->
+            <!--<div class="complain_modal_top">-->
+                <!--<h2>-->
+                    <!--Выберите язык-->
+                <!--</h2>-->
+            <!--</div>-->
+            <!--<form action="#">-->
+                <!--<div class="complain_modal_middle">-->
+                    <!--<label class="radio_push left_centr">-->
+                        <!--<input type="radio" name="like_dislike">-->
+                        <!--<div class="push_text">Русский</div>-->
+                    <!--</label>-->
+                    <!--<label class="radio_push left_centr">-->
+                        <!--<input type="radio" name="like_dislike">-->
+                        <!--<div class="push_text">English</div>-->
+                    <!--</label>-->
+                    <!--<label class="radio_push left_centr">-->
+                        <!--<input type="radio" name="like_dislike">-->
+                        <!--<div class="push_text">Français</div>-->
+                    <!--</label>-->
+                    <!--<label class="radio_push left_centr">-->
+                        <!--<input type="radio" name="like_dislike">-->
+                        <!--<div class="push_text">Deutsch</div>-->
+                    <!--</label>-->
+                    <!--<label class="radio_push left_centr">-->
+                        <!--<input type="radio" name="like_dislike">-->
+                        <!--<div class="push_text">Español</div>-->
+                    <!--</label>-->
+                    <!--<label class="radio_push left_centr">-->
+                        <!--<input type="radio" name="like_dislike">-->
+                        <!--<div class="push_text">Български</div>-->
+                    <!--</label>-->
+                <!--</div>-->
+                <!--<div class="complain_modal_bottom">-->
+                    <!--<div class="unsubscribe_posit">Отмена</div>-->
+                    <!--<div class="wrap-btn">-->
+                        <!--<input class="blue-btn" type="submit" value="Ок">-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</form>-->
+        <!--</div>-->
+    <!--</div>-->
+    <!--TODO:эта модалка изменения языка раскоментируй её-->
+
+
+</div>

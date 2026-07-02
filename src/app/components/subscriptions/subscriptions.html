@@ -1,0 +1,86 @@
+<div class="my_subscriptions_modal">
+  <div class="tabs">
+    <div class="shadow_box">
+      <div class="row">
+        <div class="create_post_top center_edges m_b_0">
+          <div class="create_post_top_left left_centr ">
+            <a (click)="_location.back();"><div class="arrow_exit" ><a class="link_footer" ></a></div></a>
+            <span class="arrow_exit_text">{{'Subscriptions'|translate}}</span>
+          </div>
+        </div>
+      </div>
+      <div class="tabs__caption">
+        <div class="pasiv" [ngClass]="{'active':tabs==0}" (click)="tabs=0;clearData();" >{{'People'|translate}}</div>
+        <div class="pasiv" [ngClass]="{'active':tabs==1}" (click)="tabs=1;clearData();" >{{'Channels'|translate}}</div>
+        <!--<div class="pasiv" [ngClass]="{'active':tabs==2}" (click)="tabs=2" >{{'Hashtags'|translate}}</div>-->
+      </div>
+    </div>
+
+      <div class="row">
+        <div class="search_group_perent anti_row left_centr active">
+          <div class="search_group left_centr">
+            <div class="search_img_perents">
+              <input class="search_img" type="submit">
+            </div>
+
+            <div class="entry_search_perent">
+              <input class="entry_search" placeholder="{{'Search'|translate}}" type="text" [(ngModel)]="filterText">
+            </div>
+          </div>
+        </div>
+
+        <div class="tabs__content active"  *ngIf="tabs==0"
+             infiniteScroll
+             [infiniteScrollDistance]="2"
+             [infiniteScrollUpDistance]="1.5"
+             [infiniteScrollThrottle]="50"
+             (scrolled)="getSubscribtions()"
+        >
+
+          <app-short-list [filter]="{text:filterText}" *ngFor="let item of subscriptions" [user]="item"></app-short-list>
+        </div>
+        <div class=" tabs__content active" *ngIf="tabs==1"
+             infinite-scroll
+             [infiniteScrollDistance]="1"
+             [infiniteScrollUpDistance]="200"
+             [infiniteScrollThrottle]="200"
+             (scrolled)="getSubscribtions()"
+        >
+
+          <app-short-list [filter]="{text:filterText}" *ngFor="let item of channels" [channels]="item"></app-short-list>
+
+          <!--<div class="settings_line left_centr anti_row">РЕКОМЕНДАЦИИ</div>-->
+
+        </div >
+        <div class=" tabs__content active"  *ngIf="tabs==2"
+             infinite-scroll
+             [infiniteScrollDistance]="1"
+             [infiniteScrollUpDistance]="200"
+             [infiniteScrollThrottle]="200"
+             (scrolled)="getSubscribtions()"
+        >
+          <app-short-list [filter]="{text:filterText}" *ngFor="let item of hashtags" [hashtags]="item"></app-short-list>
+          not API
+          <!--<div class="center_edges"  >-->
+            <!--<div class="found_option left_centr">-->
+              <!--<div class="post_icon_setting">-->
+                <!--<img src="/assets/img/men_classic.jpg" alt="">-->
+              <!--</div>-->
+              <!--<div class="found_text">-->
+                <!--<div class="find_name">-->
+                  <!--<p>#Тачки</p>-->
+                  <!--<p class="gray-text">129 234 подписчика</p>-->
+                <!--</div>-->
+              <!--</div>-->
+              <!--<a class="found_option_link" href="foreign_page.html"></a>-->
+            <!--</div>-->
+            <!--<div class="click-chanel none_subscribed"></div>-->
+          <!--</div>-->
+
+          <!--<div class="settings_line left_centr anti_row">РЕКОМЕНДАЦИИ</div>-->
+
+        </div>
+      </div>
+
+  </div>
+</div>

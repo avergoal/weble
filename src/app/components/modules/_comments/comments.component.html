@@ -1,0 +1,164 @@
+<div class="people_comments">
+  <div class="band_comment center_edges">
+    <div class="band_comment_text">{{'Comments'|translate}}</div>
+    <div class="number_comment_post">{{post.comments}}</div>
+  </div>
+  <div class="row"
+
+       infinite-scroll
+       [infiniteScrollDistance]="5"
+       [infiniteScrollUpDistance]="200"
+       [infiniteScrollThrottle]="300"
+       (scrolled)="getComments()"
+  >
+    <div *ngFor="let comment of comments_arr;let i=index" class="comment_block anti_row comments_1">
+      <div class="post_top">
+        <div class="post_top_left">
+          <div class="post_icon">
+            <img src="{{comment.user.id==user.profile.id?user.profile.avatar:comment.user.avatar}}" alt="" [routerLink]="['/user-profile',comment.user.id]">
+          </div>
+          <div class="post_top_text">
+            <div class="post_top_h2"><h2>@{{comment.user.username}}</h2></div>
+            <div class="post_info">
+              <div class="post_time b_n">
+                <p>{{help.timeOutGenerate(comment.created_at)}}</p>
+              </div>
+              <div class="post_class b_n">
+                <p></p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="three_points"   (click)="setMod(modalV,comment.id)" #modalV [clickOutsideEvents]="'click,touchstart'" [excludeBeforeClick]="true" (clickOutside)="setModHide()"  [exclude]="'.three_points_modal,.one_points,.three_points'" >
+          <div class="one_points"></div>
+          <div class="three_points_modal">
+            <!--<div class="points_block">{{'Hide'|translate}}</div>-->
+            <div class="points_block" *ngIf="comment.user.id!=user.profile.id" (click)="reportcomment(comment.id)">{{'Complain'|translate}}</div>
+            <div class="points_block" *ngIf="comment.user.id==user.profile.id" (click)="deleteComments(comment,null,i)">{{'Delete'|translate}}</div>
+          </div>
+          <!--<div class="three_points_modal">-->
+          <!--<div class="hide_modal">Скрыть</div>-->
+          <!--<div class="complain_modal" (click)="reportcomment(comment.comment_id)">Пожаловаться</div>-->
+          <!--</div>-->
+        </div>
+
+      </div>
+      <div class="written_comment">
+        <p class="written_comment_p">{{comment.text}}</p>
+      </div>
+      <div class="likes_answers top_edges" *ngIf="user.profile.token">
+        <div class="answers_text">
+          <a class="reply_link" (click)="answerComment(comment)">{{'Reply'|translate}}</a>
+        </div>
+        <!--<div class="assessment">-->
+        <!--<div class="plus_img" (click)="like(comment.id)">-->
+        <!--</div>-->
+        <!--<div class="number_likes">0</div>-->
+        <!--<div class="minus_img" (click)="dislike(comment.id)"></div>-->
+        <!--</div>-->
+      </div>
+      <div class="all_answer" *ngIf="false">
+        <div class="answer_open_close left_centr">
+          <div class="answer_open posit disp_non">{{'Show_answers'|translate}}</div>
+          <div class="answer_close posit disp_bloc">{{'Hide_answers'|translate}}</div>
+          <div class="answer_open_number disp_non">(2)</div>
+        </div>
+        <div class="line_answer"></div>
+      </div>
+      <div class="comment_dialog "
+           infinite-scroll
+           [infiniteScrollDistance]="1"
+           [infiniteScrollUpDistance]="200"
+           [infiniteScrollThrottle]="300"
+           (scrolled)="getThreadComments(comment)"
+      >
+        <!--comment_id: "46"-->
+        <!--text: "222"-->
+        <!--time: "1553804128"-->
+        <!--user_avatar: "http://static.weble.club/users/4/3/f/2/43f2074f56dbdc3a2c01eb097f5f2ec0.jpg"-->
+        <!--user_id: "3"-->
+        <!--user_name: "evgeniy"-->
+        <div class="man_answer comments_2_{{comment.id}}" *ngFor="let th of comment.thread_comments;let i=index">
+          <div class="post_top">
+            <div class="post_top_left">
+              <div class="post_icon">
+                <img src="{{th.user.avatar}}" alt="" [routerLink]="['/user-profile',th.user.id]">
+              </div>
+              <div class="post_top_text">
+                <div class="left_centr">
+                  <div class="name_сreator"><a [routerLink]="['/user-profile',th.user.id]"><h2>@{{th.user.username}}</h2></a></div>
+                  <div class="name_сreator">
+                    <!--<a href="#"><h2 class="bluo_color">Homesweethome</h2></a>-->
+                  </div>
+                </div>
+                <div class="post_info">
+                  <div class="post_time b_n">
+                    <p>{{help.timeOutGenerate(th.created_at)}}</p>
+                  </div>
+                  <div class="post_class b_n">
+                    <p></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="three_points"  (click)="setMod(modalV,comment.id)" #modalV [clickOutsideEvents]="'click,touchstart'" [excludeBeforeClick]="true" (clickOutside)="setModHide()"  [exclude]="'.three_points_modal,.one_points,.three_points'" >
+              <div class="one_points"></div>
+              <div class="three_points_modal">
+                <!--<div class="points_block">{{'Hide'|translate}}</div>-->
+                <div class="points_block" *ngIf="th.user.id!=user.profile.id" (click)="reportcomment(th.id)">{{'Complain'|translate}}</div>
+                <div class="points_block" *ngIf="th.user.id==user.profile.id" (click)="deleteComments(comment,th,i)">{{'Delete'|translate}}</div>
+
+              </div>
+
+            </div>
+          </div>
+          <div class="written_comment">
+            <p class="written_comment_p">{{th.text}}</p>
+          </div>
+          <div class="likes_answers top_edges" *ngIf="user.profile.token">
+            <div class="answers_text">
+              <a class="reply_link" (click)="answerComment(comment,th)">{{'Reply'|translate}}</a>
+            </div>
+
+          </div>
+
+        </div>
+        <div class="all_answer" *ngIf="comment.thread_comments">
+          <div class="answer_open_close left_centr">
+            <div class="answer_open posit disp_non " *ngIf="(parseInt(comment.thread_count)-comment.thread_comments.length)>0" (click)="uploadThreadComments(comment)">Показать ответы</div>
+            <div class="answer_close posit disp_non" *ngIf="(parseInt(comment.thread_count)-comment.thread_comments.length)==0" (click)="deleteThreadComments(comment)">Скрыть ответы</div>
+            <div class="answer_open_number disp_non"
+                 *ngIf="(parseInt(comment.thread_count)-comment.thread_comments.length)>0"
+            >({{(parseInt(comment.thread_count)-comment.thread_comments.length)}})</div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+  <div class="your_comment left_centr" *ngIf="user.profile.token">
+    <div class="post_icon">
+      <img src="{{user.profile.avatar}}" alt="" >
+    </div>
+
+    <div class="enter_my_comment center_edges">
+      <div class="respond-commit">
+        <div class="res-com-text top_edges" *ngIf="answerModel">
+          <div class="res-com-name">
+            @{{answerModel.user.username}}
+          </div>
+          <button (click)="answerModel=null"></button>
+        </div>
+        <!--<textarea name="" id="" cols="30" rows="10"></textarea>-->
+        <textarea (keyup)="autoGrow()" rows="1" #textArea name="text" class="textarea_messages" [(ngModel)]="comment_text"
+                  name="text"
+                  placeholder="{{'Your_comment'|translate}}"></textarea>
+      </div>
+      <input class="send_message active" type="button" value="{{'Send'|translate}}" (click)="setComment()">
+    </div>
+
+  </div>  </div>

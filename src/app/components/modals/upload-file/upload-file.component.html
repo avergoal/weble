@@ -1,0 +1,36 @@
+<div class="add_avatar_modal modal" *ngIf="show">
+  <div class="modal_opacity" (click)="error.emit(false)"></div>
+  <div class="acc_select_block">
+    <div class="row">
+      <div class="left_centr add-avatar-click" (click)="fileInput.click()" *ngIf="type.includes(1)">
+        <!--<input id="imgAdd" #fileInput style="display: none" (change)="onFileChanged($event);imageService.upload($event).then(setfileArr.bind(this))"   type="file" multiple="multiple"  />-->
+        <input id="imgAdd2" #fileInput style="display: none" (change)="checkFiles(parsefiles($event))"   type="file" multiple="multiple"  />
+
+        <div class="add-icon-avatar iconMod dowIc">
+          <!--<img src="//{{l}}/assets/img/gallery-click.svg" alt="">-->
+        </div>
+        <p>
+          {{'Download_from_gallery'|translate}}
+        </p>
+        <a class="link_full"></a>
+      </div>
+      <div class="left_centr add-avatar-click" (click)="cameraTakePicture()" *ngIf="type.includes(2)">
+        <div class="add-icon-avatar iconMod photoIc">
+          <!--<img src="//{{l}}/assets/img/photo-click.svg" alt="">-->
+        </div>
+        <p>
+          {{'Take_a_photo'|translate}}
+        </p>
+        <a  class="link_full"></a>
+      </div>
+      <div class="left_centr add-avatar-click delete-avatar" (click)="deleteFoto()" *ngIf="type.includes(3)">
+        <div class="add-icon-avatar iconMod delIc">
+          <!--<img src="//{{l}}/assets/img/trash-click.svg" alt="">-->
+        </div>
+        <p>
+          {{'delete_the_photo'|translate}}
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

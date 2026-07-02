@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+    <defs>
+        <style>
+            .cls-1{fill:none}.cls-2{fill:#648895}
+        </style>
+    </defs>
+    <g id="arrow_down" data-name="arrow down" transform="translate(-172 -78)">
+        <path id="rectangle" d="M0 0h24v24H0z" class="cls-1" transform="translate(172 78)"/>
+        <g id="Group_377" data-name="Group 377" transform="rotate(90 51.002 138.005)">
+            <path id="Path_124" d="M.6 10.007a.646.646 0 0 1-.43-.163.53.53 0 0 1 0-.791l4.368-4.042L.175.962a.53.53 0 0 1 0-.791.637.637 0 0 1 .853 0L5.82 4.613a.53.53 0 0 1 0 .791L1.028 9.845a.62.62 0 0 1-.428.162z" class="cls-2" data-name="Path 124"/>
+        </g>
+    </g>
+</svg>

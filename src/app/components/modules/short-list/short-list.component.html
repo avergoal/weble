@@ -1,0 +1,16 @@
+<!--<div   class="center_edges" *ngIf="item&&!(item['type']=='user'&&item['id']==uS.profile.id)">-->
+<div   class="center_edges" *ngIf="item">
+  <div class="found_option left_centr">
+    <div class="post_icon_setting">
+      <img [routerLink]="item.link" src="{{item.img}}" alt="">
+    </div>
+    <div class="found_text">
+      <div class="find_name">
+        <p [routerLink]="item.link">{{item.name}} </p>
+        <p class="gray-text">{{item.desc|translate}}</p>
+      </div>
+    </div>
+
+  </div>
+  <div class="subscription_unsubscribe" *ngIf="!(item['type']=='user'&&item['id']==uS.profile.id)" (click)="!item.is_subscriber?subscribe(item):unsubscribe(item)"  [ngClass]="{'none_subscribed':!item.is_subscriber,'news_subscribed':item.is_subscriber}"></div>
+</div >

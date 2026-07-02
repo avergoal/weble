@@ -1,0 +1,82 @@
+<div class="main-content_hashtage">
+    <div class="content_hashtage">
+        <div class="pers_page_top">
+            <div class="arrow_exit posit_arrow">
+                <a (click)="_location.back()" class="arrow_exit_link"></a>
+            </div>
+            <!--<div class="three_points publick-position">-->
+            <!--<div class="one_points"></div>-->
+            <!--<div class="three_points_modal">-->
+            <!--<div class="points_block" (click)="modal = 1"> {{'Moderators'|translate}}</div>-->
+            <!--<div class="points_block" (click)="modal = 2">{{'RulesOfCh'|translate}}</div>-->
+            <!--<div class="complain_click" (click)="modal = 3">{{'Complain'|translate}}</div>-->
+            <!--</div>-->
+            <!--</div>-->
+            <div class="row">
+                <div class="pers_top_top">
+                    <div class="pers_img">
+                        <img src="{{'http://weble.club/media/icons/hashtag.svg'}}" alt="">
+                    </div>
+                    <h1>
+                        {{_id}}
+                    </h1>
+                    <!--<div class="subscribe_group  column_centr" [ngClass]="{'subscribe-btn':!tag.is_subscriber}">-->
+                    <!--<div class="check_text_groups left_centr">-->
+                    <!--<div class="text_groups"  (click)="subscribe()">{{(tag.is_subscriber?('Unsubscribe'|translate):('Subscribe'|translate))}} </div>-->
+
+                    <!--</div>-->
+                    <!--</div>-->
+
+                </div>
+                <div class="personal_activity">
+                    <div class="pers_activ_number">
+                        <div class="publications_icon m_b_8"></div>
+                        <div class="number_publications number_style">{{posts.length}}</div>
+                        <div class="publications_text pers_text_style"> {{'publications'|translate}}</div>
+                    </div>
+                    <!--<div class="pers_activ_number" >-->
+                    <!--<div class="signer_icon m_b_8"></div>-->
+                    <!--<div class="number_signer number_style">{{posts.length}}</div>-->
+                    <!--<div class="gray_color pers_text_style ">{{'subscribers'|translate}}</div>-->
+                    <!--<a class="link_footer" ></a>-->
+                    <!--</div>-->
+                </div>
+            </div>
+
+        </div>
+        <div class="hashtage_post"
+             infinite-scroll
+             [infiniteScrollDistance]="1"
+             [infiniteScrollUpDistance]="200"
+             [infiniteScrollThrottle]="300"
+             (scrolled)="getPost()"
+        >
+
+            <div class="hashtage_caption center_edges">
+                <!--<div class="hashtage_tab column_centr" [ngClass]="{'active':togl==0}" (click)="togl=0">{{'Top'|translate}}</div>-->
+                <div class="hashtage_tab column_centr" [ngClass]="{'active':togl==1}"
+                     (click)="togl=1;updatePost()">{{'Recent'|translate}}</div>
+              <div class="hashtage_tab column_centr" [ngClass]="{'active':togl==0}"
+                   (click)="togl=0;updatePost()">{{'Top'|translate}}</div>
+                <!--<button *ngIf="tag.is_moderator" [ngClass]="{'active':togl==2}" (click)="togl=2">Модерация</button>-->
+            </div>
+            <div *ngIf="togl==0">
+                <app-post-view *ngFor="let post of posts"
+                               [post]="post"
+                ></app-post-view>
+            </div>
+            <div *ngIf="togl==1">
+                <app-post-view *ngFor="let post of posts"
+                               [post]="post"
+                ></app-post-view>
+            </div>
+
+
+        </div>
+    </div>
+    <app-footer *ngIf="modal==0||modal==3"></app-footer>
+
+    <app-moderators-list [channel]="channel" (exit)="modal=0" *ngIf="modal==1"></app-moderators-list>
+    <app-channel-rules [channel_id]="_id" (exit)="modal=0" *ngIf="modal==2"></app-channel-rules>
+    <app-report-modal [id]="_id" [type]="'channel_id'" (exit)="modal=0" *ngIf="modal==3"></app-report-modal>
+</div>

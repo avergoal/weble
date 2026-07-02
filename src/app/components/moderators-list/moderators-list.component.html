@@ -1,0 +1,78 @@
+<div class="channel_moderators">
+  <div class="create_post_top center_edges m_b_0">
+    <div class="row">
+      <div class="create_post_top_left left_centr " *ngIf="!add_moderator">
+        <a (click)="exitModal()"><span class="arrow_exit"></span></a>
+        <div class="arrow_exit_text">{{'Moderators'|translate}}</div>
+      </div>
+      <div class="create_post_top_left left_centr " *ngIf="add_moderator">
+        <a href="#" (click)="add_moderator = false"><span class="arrow_exit"></span></a>
+        <div class="arrow_exit_text">{{'Add_moderator'|translate}}</div>
+      </div>
+      <div class="search_group_perent anti_row left_centr active" *ngIf="add_moderator">
+        <div class="search_group left_centr">
+          <div class="search_img_perents">
+            <input class="search_img" type="submit">
+          </div>
+          <div class="entry_search_perent">
+            <input class="entry_search"  [(ngModel)]="search_text" (input)="searchUser()" placeholder="{{'Search'|translate}}" type="text">
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="wrap-moderators" *ngIf="add_moderator">
+
+    <div class="row">
+      <!--<app-short-list  *ngFor="let item of search_user" [user]="item"></app-short-list>-->
+      <div class="center_edges" *ngFor="let item of search_user">
+        <div class="found_option left_centr">
+          <div class="post_icon_setting">
+            <img src="{{item.avatar}}" alt="">
+          </div>
+          <div class="found_text">
+            <div class="find_name">
+              <p>{{item.username}}</p>
+
+            </div>
+          </div>
+          <a class="found_option_link" [routerLink]="['/user-profile',item.id]"></a>
+        </div>
+        <div class="click-chanel" (click)="initModerator(item)" [ngClass]="{'none_subscribed':!item.is_subscriber,'news_subscribed':item.is_subscriber}"></div>
+      </div>
+
+    </div>
+  </div>
+  <div class="wrap-moderators" *ngIf="!add_moderator">
+    <div class="row">
+      <div class="center_edges" *ngFor="let item of moderators">
+        <div class="found_option left_centr">
+          <div class="post_icon_setting">
+            <img src="{{item.user_avatar}}" alt="">
+          </div>
+          <div class="found_text">
+            <div class="find_name">
+              <p>@{{item.user_name}}</p>
+              <p class="gray-text " *ngIf="item.user_level==1">{{'Creator'|translate}} {{user.profile.id==item.user_id?('its_you'|translate):''}}</p>
+              <p class="gray-text " *ngIf="item.user_level==2">{{'Moderator'|translate}}</p>
+
+            </div>
+          </div>
+          <a class="found_option_link" [routerLink]="['/user-profile',item.user_id]"></a>
+        </div>
+        <!--<div class="delete_ic" *ngIf="item.user_deletable">ddd</div>-->
+        <div class="delete_ic" *ngIf="item.user_deletable" (click)="deleteModerator(item)" ></div>
+      </div>
+    </div>
+  </div>
+  <div class="create_accaunt left_centr" *ngIf="!add_moderator&&channel.is_moderator">
+    <div class="acc_create_img ic"></div>
+    <div class="acc_create_text">
+      {{'Add_moderator'|translate}}
+    </div>
+    <a (click)="addModerator()" class="link_full"></a>
+  </div>
+</div>
+

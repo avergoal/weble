@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+    <defs>
+        <style>
+            .cls-1{fill:none}.cls-2{clip-path:url(#clip-path)}.cls-3{fill:#c8d6db}
+        </style>
+        <clipPath id="clip-path">
+            <path d="M0 0h18v18H0z" class="cls-1"/>
+        </clipPath>
+    </defs>
+    <g id="comment" transform="translate(-13 -540)">
+        <path id="bg" d="M0 0h24v24H0z" class="cls-1" transform="translate(13 540)"/>
+        <g id="comment-2" class="cls-2" data-name="comment" transform="translate(16 543)">
+            <path id="Path_84" d="M7.1 13.592c-.369 0-.646-.184-.646-.551A.629.629 0 0 1 7.1 12.4h8.769a.707.707 0 0 0 .462-.184.7.7 0 0 0 .185-.459V2.02a.7.7 0 0 0-.185-.459.707.707 0 0 0-.462-.184H2.023a.338.338 0 0 0-.462.184.5.5 0 0 0-.277.459v13.5l2.677-2.847a.619.619 0 0 1 .923 0 .611.611 0 0 1 0 .918L1.1 17.724A.559.559 0 0 1 .546 18a.629.629 0 0 1-.646-.643V2.02A2.683 2.683 0 0 1 .546.551 2.1 2.1 0 0 1 2.023 0h13.939a1.884 1.884 0 0 1 1.385.551 1.864 1.864 0 0 1 .553 1.378v9.735a1.864 1.864 0 0 1-.554 1.378 1.884 1.884 0 0 1-1.385.551z" class="cls-3" data-name="Path 84" transform="translate(.1)"/>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,19 @@
+<div class="unsubscribe_modal modal" *ngIf="mS.deletePostModal.view" style="display: block">
+  <div class="modal_opacity"></div>
+
+  <div class="unsubscribe_block column_centr">
+    <div class="unsubscribe_name">{{'Delete_post'|translate}}</div>
+    <div class="del-name">{{mS.deletePostModal.data['title']}}</div>
+    <div class="unsubscribe_bottom center_edges">
+      <div class="unsubscribe_posit column_centr unsubscribe_undo">
+        <button class="btn" (click)="deletePost(false)">{{'Cancel'|translate}}</button>
+      </div>
+      <div class="unsubscribe_posit column_centr unsubscribe_tab">
+        <button class="btn" (click)="deletePost(true)">{{'Remove'|translate}}</button>
+      </div>
+
+
+    </div>
+  </div>
+
+</div>

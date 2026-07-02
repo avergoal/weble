@@ -1,0 +1,25 @@
+<div class="pers_page_color">
+    <div class="main-wrap-post">
+        <main-head></main-head>
+      <app-newpost *ngIf="postService.hotListPost" (event)="clearAll()"></app-newpost>
+        <div *ngIf="!modS.activeModCh_id"
+             infinite-scroll
+             [infiniteScrollContainer]="'.main-wrap-post'"
+             [fromRoot]="true"
+             (scrolled)="getPosts()"
+        >
+            <app-post-view *ngFor="let post of posts"
+                           [post]="post"
+            ></app-post-view>
+        </div>
+    </div>
+    <app-footer></app-footer>
+
+</div>
+
+
+
+
+
+
+

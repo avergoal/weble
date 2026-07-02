@@ -1,0 +1,24 @@
+<footer>
+
+    <div class="footer_weble" [ngStyle]="{'bottom':px}">
+        <div class="click_img weble_black" (click)="user.activTab=1" [routerLink]="['/main-popular']" >
+            <div class="weble_img " [ngClass]="{'active':user.activTab==1}"></div>
+        </div>
+        <div class="click_img searche_black"  (click)="user.activTab=2" [routerLink]="['/search_chennel']" >
+            <div class="searche_img"  [ngClass]="{'active':user.activTab==2}"></div>
+        </div>
+        <div class="news_feed_img" [ngClass]="{'active':user.activTab==3}" (click)="user.activTab=3" [routerLink]="[user.auth?'/create_new_post':'/join']"></div>
+        <div class="click_img massege_black" [routerLink]="[user.auth?'/view_dialogs':'/join']"  (click)="user.activTab=4">
+            <div class="massege_img "  [ngClass]="{'active':user.activTab==4}">
+                <div class="num-mas-f"  *ngIf="messageService.getCountNewMessages()>0">
+                    <p>
+                      {{messageService.getCountNewMessages()}}
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="click_img profile_black" [routerLink]="[user.auth?'/profile':'/join']"  (click)="user.activTab=5">
+            <div class="my_page_img"  [ngClass]="{'active':user.activTab==5}"></div>
+        </div>
+    </div>
+</footer>

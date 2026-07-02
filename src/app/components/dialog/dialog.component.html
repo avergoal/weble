@@ -1,0 +1,73 @@
+<div class="message_dialog active">
+    <div class="row" *ngIf="profile" (click)="hideKeyboard()">
+
+        <div class="create_post_top center_edges m_b_0">
+            <div class="create_post_top_left left_centr ">
+                <div class="arrow_exit">
+                    <a (click)="_location.back()"  class="link_footer"></a>
+                </div>
+                <div class="foreing_page">
+                    <div class="left_centr">
+                        <div class="interlocutor_icon">
+                            <img src="{{profile.avatar.replace('http://','https://')}}" alt="">
+                        </div>
+                        <div class="interlocutor_message"><p>{{profile.username}}</p></div>
+                        <a class="foreign_page_linc" [routerLink]="['/user-profile',_id]"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="dialog_block main-scroll anti_row" *ngIf="profile"
+             infinite-scroll
+             [infiniteScrollDistance]="2"
+             [infiniteScrollThrottle]="50"
+             [infiniteScrollContainer]="'.dialog_block'"
+             [fromRoot]="true"
+             (scrolledUp)="getMessage()"
+
+        >
+
+
+            <div *ngFor="let mess of getDialog.messages;let i=index" class="di_p">
+                <div class="date_communication column_centr" *ngIf="dateLine(i)">
+                    <p>{{help.ddmmyyyyHHmmFormat(mess.created_at)}}</p></div>
+                <div class="response_interlocutor "
+                     [ngClass]="{'bottom_left':mess.user.id!=user.profile.id,'my_interlocutor':mess.user.id==user.profile.id}">
+                    <div class="interlocutor_icon" *ngIf="mess.user.id!=user.profile.id">
+                        <img src="{{mess.user.avatar}}" alt="">
+                    </div>
+
+                    <div class="message_field bottom_left">
+                        <div class="wrapMesFiel ">
+                            <p>{{mess.text}}</p>
+                            <div class="timeMessage">
+                                <div class="center_edges">
+                                    {{help.hurSecondFormat(mess.created_at)}}
+                                    <div class="whitTick ic "
+                                         [ngClass]="{'notMas':mess.status==0,'':mess.status==1,'read':mess.status==2}">
+                                        <!--<div class="whitTick ic notMas" >-->
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+        <div class="writing_message" [ngStyle]="{'bottom':px}" (click)="showKeyboard()">
+            <!--<div class="attach_img"></div>-->
+            <textarea (keyup)="autoGrow()" id="send_btn" (focus)="focusText()" (blur)="blurText($event)" #textArea name="text" class="textarea_messages" [(ngModel)]="text"
+                      type="text"
+                      placeholder="{{'Write_a_message'|translate}}"></textarea>
+            <div class="send_message_perent" (click)="sendMessage()">
+                <input class="send_message" type="button"  value="{{'Send'|translate}}">
+            </div>
+        </div>
+        <div class="keyboard column_centr">{{'Keyboard'|translate}}</div>
+
+    </div>
+</div>

@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
+    <defs>
+        <style>
+            .cls-1{fill:#648895}.cls-2{fill:#fff}
+        </style>
+    </defs>
+    <g id="share" transform="translate(-40 -583)">
+        <g id="plus_green" transform="translate(-14 122)">
+            <circle id="Ellipse_12" cx="8" cy="8" r="8" class="cls-1" data-name="Ellipse 12" transform="translate(54 461)"/>
+        </g>
+        <g id="Outline" transform="translate(41 582)">
+            <g id="replies" transform="translate(3 5)">
+                <path id="Path_113" d="M6.111 6.867V5L3 8.267l3.111 3.267V9.62A5.4 5.4 0 0 1 11 12c-.444-2.333-1.778-4.667-4.889-5.133z" class="cls-2" data-name="Path 113" transform="translate(-3 -5)"/>
+            </g>
+        </g>
+    </g>
+</svg>

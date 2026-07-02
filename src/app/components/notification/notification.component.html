@@ -1,0 +1,135 @@
+<div class="settings_push_modal active">
+  <form action="#">
+    <div class="tabs">
+      <div class="shadow_box">
+        <div class="row">
+          <div class="create_post_top center_edges m_b_0">
+            <div class="create_post_top_left left_centr ">
+              <div class="arrow_exit"><a class="link_footer"(click)="_location.back()"></a></div>
+              <div class="arrow_exit_text">{{'Notifications2'|translate}}</div>
+              <div class="pushbutton_user_data">
+                <input class="confirm_user_data" type="button" (click)="save()">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="tabs__caption">
+          <div class="pasiv" [ngClass]="{'active':togl==0}" (click)="togl = 0">{{'Push'|translate}}</div>
+          <div class="pasiv" [ngClass]="{'active':togl==1}" (click)="togl = 1">{{'E_mail'|translate}}</div>
+        </div>
+      </div>
+      <div class="tabs__content active" *ngIf="togl == 0">
+        <div class="row">
+          <div class="push_block anti_row">
+            <div class="push_block_h">
+              <h3>{{'Likes_and_Dislikes'|translate}}</h3>
+            </div>
+            <label class="radio_push left_centr">
+              <input type="radio" name="like_dislike" [value]="0" [(ngModel)]="likes">
+              <div class="push_text">{{'Turn_off'|translate}}</div>
+            </label>
+
+            <label class="radio_push left_centr">
+              <input type="radio" name="like_dislike" [value]="2" [(ngModel)]="likes">
+              <div class="push_text">{{'From_people_m_sig_to'|translate}}</div>
+            </label>
+            <label class="radio_push left_centr">
+              <input type="radio" name="like_dislike" [value]="1" [(ngModel)]="likes">
+              <div class="push_text">{{'From_all'|translate}}</div>
+            </label>
+
+          </div>
+          <div class="push_block anti_row">
+            <div class="push_block_h">
+              <h3>{{'Comments'|translate}}</h3>
+            </div>
+            <label class="radio_push left_centr">
+              <input type="radio" name="comment_push" [value]="0" [(ngModel)]="comments">
+              <div class="push_text">{{'Turn_off'|translate}}</div>
+            </label>
+
+            <label class="radio_push left_centr">
+              <input type="radio" name="comment_push" [value]="2" [(ngModel)]="comments">
+              <div class="push_text">{{'From_people_m_sig_to'|translate}}</div>
+            </label>
+            <label class="radio_push left_centr">
+              <input type="radio" name="comment_push"  [value]="1" [(ngModel)]="comments">
+              <div class="push_text">{{'From_all'|translate}}</div>
+            </label>
+
+          </div>
+          <div class="push_block anti_row">
+            <div class="push_block_h">
+              <h3>{{'New_subscribers'|translate}}</h3>
+            </div>
+            <label class="radio_push left_centr">
+              <input type="radio" name="new_subscribers"  [value]="0" [(ngModel)]="subscribers">
+              <div class="push_text">{{'Turn_off'|translate}}</div>
+            </label>
+            <label class="radio_push left_centr">
+              <input type="radio" name="new_subscribers"   [value]="1" [(ngModel)]="subscribers">
+              <div class="push_text">{{'From_all'|translate}}</div>
+            </label>
+          </div>
+          <div class="push_block anti_row">
+            <div class="push_block_h">
+              <h3>{{'Sub_r_acc'|translate}}</h3>
+            </div>
+            <label class="radio_push left_centr">
+              <input type="radio" name="new_requests" [value]="0" [(ngModel)]="incomsubnotify">
+              <div class="push_text">{{'Turn_off'|translate}}</div>
+            </label>
+            <label class="radio_push left_centr">
+              <input type="radio" name="new_requests"  [value]="1" [(ngModel)]="incomsubnotify">
+              <div class="push_text">{{'From_all'|translate}}</div>
+            </label>
+          </div>
+          <div class="push_block anti_row">
+            <div class="push_block_h">
+              <h3>{{'New_message'|translate}}</h3>
+            </div>
+            <label class="radio_push left_centr">
+              <input type="radio" name="new_message" [value]="0" [(ngModel)]="newmessnotify">
+              <div class="push_text">{{'Turn_off'|translate}}</div>
+            </label>
+            <label class="radio_push left_centr">
+              <input type="radio" name="new_message" [value]="1" [(ngModel)]="newmessnotify">
+              <div class="push_text">{{'From_all'|translate}}</div>
+            </label>
+          </div>
+          <div class="push_block anti_row">
+            <div class="push_block_h">
+              <h3>{{'Advertising'|translate}}</h3>
+            </div>
+            <label class="radio_push left_centr">
+              <input type="radio" name="advertising_push"  [value]="0" [(ngModel)]="marketingnotify">
+              <div class="push_text">{{'Turn_off'|translate}}</div>
+            </label>
+            <label class="radio_push left_centr">
+              <input type="radio" name="advertising_push"  [value]="1" [(ngModel)]="marketingnotify">
+              <div class="push_text">{{'From_all'|translate}}</div>
+            </label>
+          </div>
+        </div>
+      </div>
+      <div class="tabs__content active" *ngIf="togl ==1">
+        <div class="push_checkbox_block">
+          <div class="row">
+            <label class="checkbox_push left_centr">
+              <input type="checkbox" name="mail_1" [(ngModel)]="mail_1">
+              <div class="checkbox__text">{{'Letters_with_feedback'|translate}}</div>
+            </label>
+            <label class="checkbox_push left_centr">
+              <input type="checkbox" name="mail_2" [(ngModel)]="mail_2">
+              <div class="checkbox__text">{{'Reminder_letters'|translate}}</div>
+            </label>
+            <label class="checkbox_push left_centr">
+              <input type="checkbox" name="mail_3" [(ngModel)]="mail_3">
+              <div class="checkbox__text">{{'Letters_with_news'|translate}}</div>
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

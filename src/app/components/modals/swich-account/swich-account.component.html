@@ -1,0 +1,30 @@
+<div class="acc_select_modal modal active" *ngIf="show">
+  <div class="modal_opacity" (click)="mS.swichAccountModal.view = false"></div>
+  <div class="acc_select_block">
+    <div class="row">
+      <div class="add_line_accaunt anti_row">
+        <div class="line_accaunt center_edges" *ngFor="let profile of profiles">
+          <div class="form-row center_edges">
+            <input type="radio" [checked]="isCheck(profile.token)"  (click)="setAccount(profile)" class="radio_acc" id="radio-account{{profile.token}}" name="acc_choice">
+            <label for="radio-account{{profile.token}}">
+                                                <span class="post_top_left">
+                                                    <span class="post_icon">
+                                                        <img src="{{profile.avatar}}" alt="">
+                                                    </span>
+                                                    <span class="name_acc">{{profile.username}}</span>
+                                                </span>
+            </label>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="create_accaunt left_centr" (click)="mS.swichAccountModal.view = false" [routerLink]="['/register']">
+        <div class="acc_create_img ic"></div>
+        <div class="acc_create_text">
+          {{'AddAccount'|translate}}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

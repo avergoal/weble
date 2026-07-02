@@ -1,0 +1,73 @@
+.unsubscribe_block {
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 0;
+}
+.unsubscribe_name{
+  width: 100%;
+  text-align: left;
+  margin-bottom: 30px;
+}
+.unsubscribe_text{
+  margin-bottom: 0;
+}
+.unsubscribe_text.shadow{
+  box-shadow: 0px -1px 10px 0px rgba(0, 0, 0, 0.1);
+  display: flex;
+  width: calc(100% + 40px);
+  margin-left: -20px;
+  margin-right: -20px;
+  margin-top: 30px;
+}
+.btn{
+  width: 50%;
+  color: #278ec4;
+  border: 0;
+  box-shadow: none;
+  background-color: transparent;
+  padding: 26px 0;
+  font-size: 14px;
+  font-weight: bold;
+}
+.unsubscribe_text.box{
+  max-height: 250px;
+  overflow: auto;
+}
+.unsubscribe_text p{
+  position: relative;
+  padding-left: 40px;
+  display: block;
+  line-height: 24px;
+  margin-bottom: 24px;
+  text-align: left;
+  &:last-child{
+    margin-bottom: 0;
+  }
+}
+.unsubscribe_text p:before{
+  content: '';
+  position: absolute;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  border-radius: 100%;
+  border: 2px solid #648895;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}
+.unsubscribe_text p.active:before{
+  border: 2px solid #278ec4;
+}
+.unsubscribe_text p.active:after{
+  content: '';
+  position: absolute;
+  left: 6px;
+  width: 12px;
+  height: 12px;
+  border-radius: 100%;
+  background-color: #278ec4;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}

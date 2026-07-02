@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+    <defs>
+        <style>
+            .cls-1{fill:#278ec4}.cls-2{fill:none}.cls-3{clip-path:url(#clip-path)}
+        </style>
+        <clipPath id="clip-path">
+            <path id="Path_175" d="M0-7.319h16v10H0z" class="cls-1" data-name="Path 175" transform="translate(0 7.319)"/>
+        </clipPath>
+    </defs>
+    <g id="done" transform="translate(-16 -40)">
+        <path id="Rectangle_155" d="M0 0h24v24H0z" class="cls-2" data-name="Rectangle 155" transform="translate(16 40)"/>
+        <g id="Group_450" class="cls-3" data-name="Group 450" transform="translate(20 47)">
+            <g id="Group_449" data-name="Group 449">
+                <path id="Path_174" d="M4.246.071a1.055 1.055 0 0 1 1.446.043.956.956 0 0 1-.046 1.386l-8.925 8.04a1.055 1.055 0 0 1-1.4 0L-9.71 5.008a.954.954 0 0 1-.044-1.387 1.053 1.053 0 0 1 1.444-.042l4.331 3.9z" class="cls-1" data-name="Path 174" transform="translate(10.032 .195)"/>
+            </g>
+        </g>
+    </g>
+</svg>

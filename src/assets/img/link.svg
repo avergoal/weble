@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" id="link" width="30" height="30" viewBox="0 0 30 30">
+    <defs>
+        <style>
+            .cls-1{fill:none}.cls-2{fill:#648895}
+        </style>
+    </defs>
+    <g id="Layer_1" data-name="Layer 1">
+        <path id="Rectangle_311" d="M0 0h30v30H0z" class="cls-1" data-name="Rectangle 311"/>
+        <path id="Path_266" d="M22.79 4.262a6.963 6.963 0 0 0-9.788 0L9.84 7.437a.937.937 0 1 0 1.325 1.325l3.163-3.175a5.043 5.043 0 1 1 7.137 7.125l-3.175 3.175a.937.937 0 0 0 1.325 1.325l3.175-3.163a6.962 6.962 0 0 0 0-9.787z" class="cls-2" data-name="Path 266" transform="translate(2.385 .563)"/>
+        <path id="Path_267" d="M15.857 18.29l-3.175 3.175a5.038 5.038 0 1 1-7.125-7.125l3.175-3.175A.938.938 0 1 0 7.407 9.84L4.232 13a6.925 6.925 0 0 0 9.788 9.79l3.162-3.175a.937.937 0 1 0-1.325-1.325z" class="cls-2" data-name="Path 267" transform="translate(.593 2.385)"/>
+        <path id="Path_268" d="M16.595 8.14l-8.45 8.45a.937.937 0 0 0 1.325 1.325l8.45-8.45a.937.937 0 0 0-1.325-1.325z" class="cls-2" data-name="Path 268" transform="translate(1.968 1.972)"/>
+    </g>
+</svg>

@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+    <defs>
+        <style>
+            .cls-1{fill:none}.cls-2{fill:#278ec4}
+        </style>
+    </defs>
+    <g id="doc" transform="translate(-44 -160)">
+        <path id="Rectangle_178" d="M0 0h24v24H0z" class="cls-1" data-name="Rectangle 178" transform="translate(44 160)"/>
+        <path id="Path_132" d="M18.182.889a.909.909 0 0 1 1.818 0v22.222a.9.9 0 0 1-.909.889H.909A.9.9 0 0 1 0 23.111V.889A.9.9 0 0 1 .909 0h13.636a.9.9 0 0 1 .909.889.9.9 0 0 1-.909.889H1.818v20.444h16.364V.889zM5.076 17.778a.889.889 0 1 1 0-1.778h9.848a.889.889 0 1 1 0 1.778zm0-5.333a.889.889 0 1 1 0-1.778h5.783a.889.889 0 1 1 0 1.778zm0-5.333a.889.889 0 1 1 0-1.778h9.848a.889.889 0 1 1 0 1.778z" class="cls-2" data-name="Path 132" transform="translate(46 160)"/>
+    </g>
+</svg>

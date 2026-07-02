@@ -1,0 +1,40 @@
+<div class="complain_modal modal active">
+  <div class="modal_opacity"></div>
+  <div class="box_complain_modal">
+    <div class="complain_modal_top">
+      <h2>
+        {{'Choose_a_reason'|translate}}
+      </h2>
+    </div>
+
+      <div class="complain_modal_middle">
+        <label class="radio_push left_centr">
+          <input [value]="1" [(ngModel)]="typeRepotr" type="radio" name="like_dislike">
+          <div class="push_text">{{'complain_choose._1'|translate}}</div>
+        </label>
+        <label class="radio_push left_centr">
+          <input [value]="2" [(ngModel)]="typeRepotr" type="radio" name="like_dislike">
+          <div class="push_text">{{'complain_choose._2'|translate}}</div>
+        </label>
+        <label class="radio_push left_centr">
+          <input [value]="3" [(ngModel)]="typeRepotr" type="radio" name="like_dislike">
+          <div class="push_text">{{'complain_choose._3'|translate}}</div>
+        </label>
+        <label class="radio_push left_centr">
+          <input [value]="4" [(ngModel)]="typeRepotr" type="radio" name="like_dislike">
+          <div class="push_text">{{'complain_choose._4'|translate}}</div>
+        </label>
+        <label class="radio_push left_centr">
+          <input [value]="5" [(ngModel)]="typeRepotr" type="radio" name="like_dislike">
+          <div class="push_text">{{'complain_choose._5'|translate}}</div>
+        </label>
+      </div>
+      <div class="complain_modal_bottom">
+        <div class="unsubscribe_posit" (click)="exitModal()">{{'Cancel'|translate}}</div>
+        <div class="wrap-btn">
+          <input class="blue-btn" type="button" (click)="report()" value="{{'Send'|translate}}">
+        </div>
+      </div>
+
+  </div>
+</div>

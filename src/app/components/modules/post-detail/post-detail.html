@@ -1,0 +1,12 @@
+<div class="post-comment main-scroll" *ngIf="_id&&post">
+    <div class="row">
+        <div class="create_post_top center_edges m_b_0" *ngIf="post">
+            <div class="create_post_top_left left_centr ">
+                <a class="dis_flex"><span class="arrow_exit" (click)="back()"></span></a>
+                <div class="arrow_exit_text">{{post.title}}</div>
+            </div>
+        </div>
+    </div>
+    <app-post-view  [post]="post" [comments]="true" [type]="'full'"></app-post-view>
+    <app-comments *ngIf="post" [post]="post"></app-comments>
+</div>

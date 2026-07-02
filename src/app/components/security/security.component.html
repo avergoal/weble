@@ -1,0 +1,29 @@
+<div class="user_data_modal">
+
+    <div class="row">
+      <div class="create_post_top center_edges m_b_0">
+        <div class="create_post_top_left left_centr ">
+          <div class="arrow_exit"><a class="link_footer" (click)="_location.back()" ></a></div>
+          <div class="arrow_exit_text">{{'Security'|translate}}</div>
+          <div class="pushbutton_user_data">
+            <input class="confirm_user_data" type="button" (click)="save()">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="settings_background security-box">
+      <div class="box_input">
+        <input class="input_name" type="password" [(ngModel)]="pass_old" placeholder="{{'Current_password'|translate}}">
+        <p class="input-text">{{'Current_password'|translate}}</p>
+      </div>
+      <div class="box_input">
+        <input class="input_name" type="password" [(ngModel)]="pass_new" placeholder="{{'New_password'|translate}}">
+        <p class="input-text">{{'New_password'|translate}}</p>
+      </div>
+      <div class="box_input">
+        <input class="input_name" type="password" [(ngModel)]="pass_check" placeholder="{{'Repeat_new_password'|translate}}">
+        <p class="input-text">{{'Repeat_new_password'|translate}}</p>
+      </div>
+    </div>
+
+</div>

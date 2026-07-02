@@ -1,0 +1,77 @@
+<div class="pers_page_color  main-edit-profile">
+  <div class="personal_page">
+    <div class="pers_page_top">
+      <div class="row">
+        <div class="pers_top_top">
+          <div class="pers_img">
+            <img src="{{user.profile.avatar||'assets/img/men_classic.jpg'}}" alt="">
+          </div>
+          <div class="perents_settings_pers" [routerLink]="['/view_userdata']">
+            <div class="settings_pers"></div>
+          </div>
+          <div class="pers_name">
+            <div class="pers_name_text">
+              {{user.profile.username}}
+            </div>
+            <div class="pers_name_tick" (click)="mS.swichAccountModal.view = true"></div>
+          </div>
+        </div>
+        <div class="personal_activity">
+          <div class="pers_activ_number">
+            <div class="publications_icon m_b_8"></div>
+            <div class="number_publications number_style">{{user.profile.posts}}</div>
+            <div
+              class="publications_text pers_text_style">{{dataService.declination(user.profile.posts, 'publication')|translate}}</div>
+          </div>
+
+          <div class="pers_activ_number my_subscr" [routerLink]="['/subscribers']">
+
+            <div class="signer_icon m_b_8"></div>
+            <div class="number_signer number_style">{{user.profile.subscribers}}</div>
+            <div
+              class="signer_text pers_text_style">{{dataService.declination(user.profile.subscribers, 'subscriber')|translate}}</div>
+          </div>
+
+
+          <div class="pers_activ_number my_subscrip" [routerLink]="['/subscriptions']">
+
+            <div class="subscribe_icon m_b_8"></div>
+            <div class="number_subscribe number_style">{{user.profile.subscriptions}}</div>
+            <div
+              class="subscribe_text pers_text_style">{{dataService.declination(user.profile.subscriptions, 'subscription')|translate}}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="personal_content">
+      <div class="choice_pers_content">
+        <div class="my_content" [ngClass]="{'active':activeTab=='posts'}"
+             (click)="activeTab='posts'">{{'Posts'|translate}}</div>
+        <div class="my_content" [ngClass]="{'active':activeTab=='pers'}"
+             (click)="activeTab='pers'">{{'Comments'|translate}}</div>
+        <div class="my_content" [ngClass]="{'active':activeTab=='notice'}"
+             (click)="activeTab='notice'">{{'Notifications2'|translate}}</div>
+      </div>
+
+
+      <div class="tabs_pers active" *ngIf="activeTab=='posts'"
+           infinite-scroll
+           [infiniteScrollContainer]="'.personal_page'"
+           [fromRoot]="true"
+           (scrolled)="getPost()">
+        <app-post-view *ngFor="let post of posts;let i = index"
+                       [post]="post"></app-post-view>
+        <!--<div style="height: 482px" *ngFor="let post of posts;let i = index">{{i}}</div>-->
+      </div>
+      <div class="tabs_pers active" *ngIf="activeTab=='pers'">
+        <app-pers-coment></app-pers-coment>
+      </div>
+
+      <div class="tabs_pers active" *ngIf="activeTab=='notice'">
+        <app-pers-notify></app-pers-notify>
+      </div>
+    </div>
+  </div>
+  <app-footer></app-footer>
+</div>
+

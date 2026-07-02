@@ -1,0 +1,199 @@
+<div *ngIf="post" id="post_id_{{post.id}}" class="wrap-post changes-post {{type=='full'?'':mS.viewPostType.type}} "
+     [ngClass]="{ 'filmSpoiler':post.spoiler==1,'post_link':post.link,'slider-post':post.attachments&&post.attachments.length>1,'noImg':!post.attachments||post.attachments.length==0}">
+    <!--TODO:при спойлере добовляется класс filmSpoiler отступы направлю потом картинок нет на понятно не ченго-->
+    <div class="row">
+        <div class="post_top" *ngIf="post.user">
+            <div class="post_top_left">
+                <div class="post_icon"
+                     [routerLink]="post.channel.name?['/channel_viwe',post.channel.id]:['/user-profile',post.user.id]">
+                    <img src="{{post.channel.avatar?post.channel.avatar:post.user.avatar}}" alt="">
+                </div>
+                <div class="post_top_text post-h">
+                    <div class="box-post-top">
+                        <div class="post_top_h2">
+                            <h2 [routerLink]="post.channel.name?['/channel_viwe',post.channel.id]:['/user-profile',post.user.id]">{{post.channel.name ? '~' + post.channel.name : '@' + post.user.username}}</h2>
+                        </div>
+                        <div class="post_class">
+                            <p [routerLink]="['/user-profile',post.user.id]">@{{post.user.username}}</p>
+                        </div>
+                    </div>
+                    <div class="gray-text">
+                        {{help.timeOutGenerate(post.created_at)}}
+                    </div>
+                </div>
+                <!--<a class="link_post" [routerLink]="user.auth?post.channel.name?['/channel_viwe',post.channel.id]:['/user-profile',post.user.id]:['/join']" ></a>-->
+            </div>
+            <!--[clickOutsideEvents]="'click,touchstart'"-->
+            <div class="three_points" (click)="setMod(modalV,post.id)" *ngIf="!moderate" #modalV
+                 [excludeBeforeClick]="true" (clickOutside)="setModHide()"
+                 [exclude]="'.three_points_modal,.one_points,.three_points'">
+                <div class="one_points"></div>
+                <div class="three_points_modal">
+                    <div *ngIf="post.user.id==user.profile.id" class="points_block" (click)="editpost()">
+                        {{'Edit'|translate}}
+                    </div>
+                    <div *ngIf="post.user.id==user.profile.id" class="points_block" (click)="deletepost()">
+                        {{'Remove'|translate}}
+                    </div>
+                    <!--<div *ngIf="post.user.id==user.profile.id" class="points_block"-->
+                    <!--(click)="hidepost()">{{'Spoiler'|translate}}</div>-->
+                    <div *ngIf="post.user.id!=user.profile.id" class="points_block"
+                         (click)="reportpost()">{{'Complain'|translate}}</div>
+                    <!--<div class="points_block" *ngIf="post.user.id==user.profile.id" (click)="hidepost()">NSFW</div>-->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="post_middle">
+        <div class="row " (click)="post.nsfw=0" [ngClass]="{'blurNf':!dviwe&&post.link&&post.nsfw==('1'||1)&&user.profile.settings.nsfw==0}">
+            <div class="post_link-b m_b_12" *ngIf="post.link" >
+                <span [routerLink]="['/post-detail',post.id]">{{post.title}} </span>
+                <a class="bluo_color f-rubik" (click)="post.link?openLink(post.link.url):null" >{{post.link.url}}</a>
+
+            </div>
+            <div  [ngClass]="{'modal-img':eventClickImg}" class="post_mid">
+                <div class="box-main-modal">
+                    <div class="cross_exit" *ngIf="!dviwe" (click)="closeImg()"></div>
+                    <div class="wrap-h3 top_edges">
+                        <h3 *ngIf="!post.link&&!dviwe" [routerLink]="['/post-detail',post.id]">{{post.title}} </h3>
+                        <h3 *ngIf="post.link" (click)="post.link?openLink(post.link.url):null">{{post.link.name}} </h3>
+                        <div class="warn-spoiler" *ngIf="post.spoiler==1">
+                            {{'SPOILER'|translate}}
+                        </div>
+                    </div>
+                    <div class="post_link-b f-rubik m_b_12" *ngIf="post.link" (click)="post.link?openLink(post.link.url):null">
+                        {{post.link.description}}
+                    </div>
+                    <div class="wrap-img scroll-index m_b_12"   *ngIf="post.link&&post.link.iframe" (click)="post.link?openLink(post.link.url):null"
+                         [innerHTML]="post.link.iframe">
+                    </div>
+
+                    <div class="wrap-img scroll-index m_b_12" *ngIf="post.link&&!post.link.iframe" (click)="post.link?openLink(post.link.url):null">
+                        <div class="b_slider">
+                            <div class="main-img carousel-item">
+                                <div class="post_middle_img active" >
+                                    <img  class="imsourse" src="{{post.link.preview}}" alt="" >
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="wrap-img active scroll-index m_b_12"
+                         [ngClass]="{'spoler_hide':post.spoiler==1,'blur':post.nsfw==('1'||1)&&user.profile.settings.nsfw==0}"
+                         *ngIf="post.attachments&&post.attachments.length">
+                        <div class="blur-img" *ngIf="post.nsfw==('1'||1)" (click)="post.nsfw = 0">
+                            <div class="blur-icon"></div>
+                            <h2>{{'alert_content'|translate}}</h2>
+                        </div>
+
+                        <div class="swiper-container {{postContainer}}" >
+                          <div  class="swiper-wrapper">
+                            <div class="main-img swiper-slide" *ngFor="let img of post.attachments"
+                                 id="postID_{{post.id}}">
+                                <div class="post_middle_img " [ngClass]="{'active':dviwe}" *ngIf="img.type=='image'">
+                                    <img class="imsourse" (click)="clickImg(post.id)" src="{{img.url}}">
+
+                                </div>
+                                <!--<div class="post_middle_img" *ngIf="img.type=='video'">-->
+
+                                    <!--<video controls="" width="100%" height="100%" preload="none">-->
+                                        <!--<source type="video/mp4" src="{{img.url}}">-->
+                                    <!--</video>-->
+                                <!--</div>-->
+                                <div *ngIf="img.type=='image'&&dviwe"  class="descrptText">{{img.name}}</div>
+                            </div>
+                          </div>
+                          <div class="swiper-pagination pagination{{postContainer}}"></div>
+                        </div>
+
+                    </div>
+                    <!--<div class="scroll-circle" *ngIf="post.attachments&&post.attachments.length&&post.spoiler==0">-->
+                        <!--<div class="b_slider p-b12">-->
+                            <!--<div *ngFor="let img of post.attachments;let i=index" class="main-circle  img_{{post.id}}">-->
+                                <!--<div class="def-circle "></div>-->
+                            <!--</div>-->
+
+                        <!--</div>-->
+                    <!--</div>-->
+                    <div class="post_bottom">
+                        <div class="row">
+
+                            <div class="post_bottom_subsidiary"  *ngIf="!dviwe">
+                                <div class="input-moderator-post" *ngIf="moderate">
+                                    <input class="decline-post " type="button" (click)="Approve(false)" value="{{'Reject'|translate}}">
+                                </div>
+                                <div class="input-moderator-post" *ngIf="moderate">
+                                    <input class="endorse-post" type="button" (click)="Approve(true)" value="{{'Approve'|translate}}">
+                                </div>
+                                <div class="assessment" *ngIf="!moderate">
+
+
+                                    <div class="plus_img " [ngClass]="{'active':post.myrating==1}" (click)="like(post.id)"></div>
+                                    <div class="number_likes">{{(post.rating)}}</div>
+                                    <div class="minus_img " [ngClass]="{'active':post.myrating==-1}" (click)="dislike(post.id)"></div>
+                                </div>
+                                <a class="post_bottom_comments" (click)="eventClickImg=false;dviwe = false" [routerLink]="['/post-detail',post.id]" *ngIf="!moderate">
+                                    <span class="comments_img"></span>
+                                    <span class="number_comments" >{{post.comments}}</span>
+                                </a>
+                                <div class="post_bottom_share" *ngIf="!moderate"
+                                     (click)="mS.shareViaAll(post.title,post.text,post.share_url,post.channel.avatar?post.channel.avatar:post.user.avatar)">
+                                    <div class="sharing_img"></div>
+                                    <div class="sharing_text">{{'Share'|translate}}</div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="openSpoiler" *ngIf="post.spoiler==1">
+                    <div class="openSpText bluo_color fz-14" (click)="post.spoiler = 0">
+                        {{'Open_spoiler'|translate}}
+                    </div>
+                </div>
+                <div class="post_middle_text" *ngIf="!post.link">
+                    <div class="pos_mid_tex_p">
+                        <p>{{post.text}}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="hashtags" *ngIf="post.tags">
+                <a class="hashtag_style" *ngFor="let tag of post.tags"><span
+                        [routerLink]="['/tags_viwe',tag]">#{{tag}}</span></a>
+            </div>
+        </div>
+    </div>
+    <div class="post_bottom">
+        <div class="row">
+
+            <div class="post_bottom_subsidiary">
+                <div class="input-moderator-post" *ngIf="moderate">
+                    <input class="decline-post " type="button" (click)="Approve(false)" value="{{'Reject'|translate}}">
+                </div>
+                <div class="input-moderator-post" *ngIf="moderate">
+                    <input class="endorse-post" type="button" (click)="Approve(true)" value="{{'Approve'|translate}}">
+                </div>
+                <div class="assessment" *ngIf="!moderate">
+
+
+                    <div class="plus_img " [ngClass]="{'active':post.myrating==1}" (click)="like(post.id)"></div>
+                    <div class="number_likes">{{(post.rating)}}</div>
+                    <div class="minus_img " [ngClass]="{'active':post.myrating==-1}" (click)="dislike(post.id)"></div>
+                </div>
+                <a class="post_bottom_comments" [routerLink]="['/post-detail',post.id]" *ngIf="!moderate">
+                    <span class="comments_img"></span>
+                    <span class="number_comments">{{post.comments}}</span>
+                </a>
+                <div class="post_bottom_share" *ngIf="!moderate"
+                     (click)="mS.shareViaAll(post.title,post.text,post.share_url,post.channel.avatar?post.channel.avatar:post.user.avatar)">
+                    <div class="sharing_img"></div>
+                    <div class="sharing_text">{{'Share'|translate}}</div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+

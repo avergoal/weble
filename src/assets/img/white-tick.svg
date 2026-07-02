@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8 6">
+    <defs>
+        <style>
+            .cls-1{fill:#fafafa}
+        </style>
+    </defs>
+    <path id="done" d="M12.179 7.652a.435.435 0 0 1 .71 0 .6.6 0 0 1 0 .816l-1.358 1.464-3.116 3.353a.435.435 0 0 1-.71 0l-2.486-2.694a.687.687 0 0 1-.071-.816.434.434 0 0 1 .71 0l2.131 2.367 4.19-4.49z" class="cls-1" transform="translate(-5.05 -7.469)"/>
+</svg>

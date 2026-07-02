@@ -1,0 +1,26 @@
+<div id="view_index" class="tabs__footer ">
+  <div class="footer_img">
+    <div class="tabs">
+      <app-switch-btn-head></app-switch-btn-head>
+      <div class="post_line">
+        <div class="row">
+          <div class="post_entry">
+            <div class="pen_img"></div>
+            <form action="#">
+              <input class="post_write" type="text" placeholder="{{'Write_something'|translate}}">
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="tabs__content active">
+        <app-post-view *ngFor="let post of posts"
+                       [post]="post"
+        ></app-post-view>
+
+      </div>
+      <div class="tabs__content">
+        Содержимое второго блока
+      </div>
+    </div>
+  </div>
+</div>

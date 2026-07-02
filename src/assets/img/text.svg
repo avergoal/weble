@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" id="text" width="30" height="30" viewBox="0 0 30 30">
+    <defs>
+        <style>
+            .cls-1{fill:none}.cls-2{fill:#648895}
+        </style>
+    </defs>
+    <g id="Layer_1" data-name="Layer 1">
+        <path id="Rectangle_310" d="M0 0h30v30H0z" class="cls-1" data-name="Rectangle 310"/>
+        <path id="Path_261" d="M24.177 10.375a.938.938 0 0 0 .887-.937v-5a2.187 2.187 0 0 0-2.137-2.188H5.428A2.188 2.188 0 0 0 3.29 4.438v20a2.187 2.187 0 0 0 2.137 2.188h17.5a2.187 2.187 0 0 0 2.137-2.188v-10a.938.938 0 0 0-1.875 0v10a.312.312 0 0 1-.312.313H5.428a.313.313 0 0 1-.262-.313v-20a.313.313 0 0 1 .262-.312h17.5a.313.313 0 0 1 .313.313v5a.95.95 0 0 0 .937.938z" class="cls-2" data-name="Path 261" transform="translate(.822 .563)"/>
+        <path id="Path_262" d="M18.578 5.59H7.927a.938.938 0 0 0 0 1.875h10.65a.938.938 0 0 0 0-1.875z" class="cls-2" data-name="Path 262" transform="translate(1.747 1.397)"/>
+        <path id="Path_263" d="M7.927 10.785h5.65a.937.937 0 1 0 0-1.875h-5.65a.937.937 0 1 0 0 1.875z" class="cls-2" data-name="Path 263" transform="translate(1.747 2.228)"/>
+        <path id="Path_264" d="M19.5 13.847a.938.938 0 0 0-.937-.937H7.927a.938.938 0 0 0 0 1.875h10.65a.925.925 0 0 0 .925-.937z" class="cls-2" data-name="Path 264" transform="translate(1.747 3.227)"/>
+        <path id="Path_265" d="M7.927 16.91a.938.938 0 0 0 0 1.875h5.65a.938.938 0 1 0 0-1.875z" class="cls-2" data-name="Path 265" transform="translate(1.747 4.228)"/>
+    </g>
+</svg>

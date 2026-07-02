@@ -1,0 +1,19 @@
+<div class="add_tags modal">
+  <div class="modal_opacity"></div>
+  <div class="add_tags_modal minModal">
+    <h3 class="m_b_8">{{'Tags'|translate}}</h3>
+    <p class="f-rubik fz-14 gray_color m_b_24">{{'noMore5'|translate}}</p>
+    <div class="wrapNewInput mb28">
+      <input type="tags" placeholder="#"  #myInput [(ngModel)]="hashtags" (keyup)="acceptHash()">
+      <!--<rl-tag-input [(ngModel)]="hashtags" placeholder="Testing placeholder"></rl-tag-input>-->
+      <p class="NewInputText gray_color f-rubik fz-12">#</p>
+    </div>
+    <div class="complain_modal_bottom">
+      <div class="unsubscribe_posit" (click)="close.emit()">{{'Cancel'|translate}}</div>
+      <div class="wrap-btn">
+        <input class="blue-btn" type="button"  (click)="setHashTags()" value="{{'Send'|translate}}">
+        {{ myInput.focus() }}
+      </div>
+    </div>
+  </div>
+</div>

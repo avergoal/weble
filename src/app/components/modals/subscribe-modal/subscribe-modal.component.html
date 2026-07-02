@@ -1,0 +1,22 @@
+<div class="subscribe_modal modal active" *ngIf="mS.subscribeModal.view&&mS.subscribeModal.data">
+  <div class="modal_opacity"></div>
+  <div class="unsubscribe_block column_centr">
+    <div class="pers_img">
+      <img src="{{mS.subscribeModal.data.img}}" alt="">
+    </div>
+    <div class="unsubscribe_name">{{mS.subscribeModal.data.name}}</div>
+    <div class="unsubscribe_text">
+      <p *ngIf="['user'].indexOf(mS.subscribeModal.data.type)>-1">{{mS.subscribeModal.type?('subscToNot'|translate):('unsubscToNot'|translate)}}</p>
+      <p *ngIf="['channels'].indexOf(mS.subscribeModal.data.type)>-1">{{mS.subscribeModal.type?('subscToNot'|translate):('unsubscToNot'|translate)}}</p>
+      <p *ngIf="['tags'].indexOf(mS.subscribeModal.data.type)>-1">{{mS.subscribeModal.type?('subscToNot'|translate):('unsubscToNot'|translate)}}</p>
+    </div>
+    <div class="unsubscribe_bottom center_edges">
+      <div class="unsubscribe_posit column_centr unsubscribe_undo" *ngIf="['user'].indexOf(mS.subscribeModal.data.type)>-1" (click)="cancel()">{{'Cancel'|translate}}</div>
+      <div class="unsubscribe_posit column_centr unsubscribe_undo" *ngIf="['channels'].indexOf(mS.subscribeModal.data.type)>-1" (click)="cancel()">{{'Cancel'|translate}}</div>
+      <div class="unsubscribe_posit column_centr unsubscribe_undo" *ngIf="['tags'].indexOf(mS.subscribeModal.data.type)>-1" (click)="cancel()">{{'Cancel'|translate}}</div>
+      <div class="unsubscribe_posit column_centr subscribe_tab" *ngIf="['user'].indexOf(mS.subscribeModal.data.type)>-1" (click)="init()">{{mS.subscribeModal.type?('Subscribe'|translate):('Unsubscribe'|translate)}}</div>
+      <div class="unsubscribe_posit column_centr subscribe_tab" *ngIf="['channels'].indexOf(mS.subscribeModal.data.type)>-1" (click)="init()">{{mS.subscribeModal.type?('Subscribe'|translate):('Unsubscribe'|translate)}}</div>
+      <div class="unsubscribe_posit column_centr subscribe_tab" *ngIf="['tags'].indexOf(mS.subscribeModal.data.type)>-1" (click)="init()">{{mS.subscribeModal.type?('Subscribe'|translate):('Unsubscribe'|translate)}}</div>
+    </div>
+  </div>
+</div>

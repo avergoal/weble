@@ -1,0 +1,116 @@
+<div class="channels_page_top new_channel" *ngIf="!category_search&&!ch_rules">
+    <div class="arrow_exit posit_arrow">
+        <a class="arrow_exit_link" (click)="dataService.HISTORY.back()"></a>
+    </div>
+    <div class="row">
+
+        <div class="avatar_block column_centr">
+            <div class="pers_img column_centr" (click)="uploadAvatar = true">
+                <img *ngIf="attachment" src="{{attachment}}" alt="">
+                <div *ngIf="!attachment" class="add_avatar"></div>
+            </div>
+            <div class="gray-text">
+                {{'AddAvatarCh'|translate}}
+            </div>
+        </div>
+        <div class="box_input">
+            <input class="input_name" type="text" placeholder="{{'Name'|translate}}" [(ngModel)]="name">
+            <p class="input-text">{{'Name'|translate}}</p>
+        </div>
+        <div class="box_input thematics-channels">
+            <a class="gray_color"
+               (click)="category_search = true">{{category_id ? category_id.cat_translate[user.profile.settings.lang]||category_id.cat_title : ('Choose_a_theme'|translate)}}</a>
+        </div>
+        <div class="box_input">
+            <input class="input_name" type="text" placeholder="{{'ChDesc'|translate}}" [(ngModel)]="description">
+            <p class="input-text">{{'ChDesc'|translate}}</p>
+            <div class="wrap-character-count">
+                <div class="character-count gray-text">
+                    {{description.length}}
+                </div>
+                <div class="gray-text">
+                    /300
+                </div>
+            </div>
+        </div>
+        <div class="box_input">
+            <input class="input_name" type="text" placeholder="{{'RulesOfCh'|translate}}" [(ngModel)]="rules">
+            <p class="input-text">{{'RulesOfCh'|translate}}</p>
+        </div>
+        <div class="anti_row settings_button m_b_24">
+            <label class="checkbox_push left_centr">
+                <span class="icon-18"></span>
+                <input type="checkbox" [value]="1"  [(ngModel)]="nsfw"><span class="checkbox__text">
+        <span class="width-text"> {{'Show_adult_content'|translate}}</span>
+      </span>
+            </label>
+        </div>
+        <div class="read-rules">
+            <div class="radio_sex left_centr">
+                <input type="checkbox" class="sex_selection" name="men_women" [value]="true" id="read-rules" [(ngModel)]="is_read">
+                <label for="read-rules">{{'AcceptRules1'|translate}}</label>
+            </div>
+            <a class="blue-text" (click)="ch_rules = true">{{'AcceptRules2'|translate}}</a>
+        </div>
+        <div class="perent_enter_weble">
+            <input class="input_enter_weble" value=" {{'CreateNewCh'|translate}}" type="button" (click)="create()">
+        </div>
+
+    </div>
+</div>
+
+<div class="new_channel_themes" *ngIf="category_search">
+    <div class="row">
+        <div class="create_post_top center_edges m_b_0">
+            <div class="create_post_top_left left_centr ">
+                <a (click)="category_search = false"><span class="arrow_exit"></span></a>
+                <div class="arrow_exit_text"> {{'ChoiceOfSubject'|translate}}</div>
+            </div>
+        </div>
+        <div class="search_group_perent anti_row left_centr active">
+            <div class="search_group left_centr">
+                <div class="search_img_perents">
+                    <input class="search_img" type="submit">
+                </div>
+                <div class="entry_search_perent">
+                    <input class="entry_search" placeholder="Поиск" type="text">
+                </div>
+            </div>
+        </div>
+
+        <div class="settings_background anti_row">
+            <div class="settings_personal" *ngFor="let cat of dataService.categories">
+                <div class="accounts_item search-channel center_edges"
+                     (click)="category_id = cat;category_search = false">
+                    <div class="post_top_left">
+                        <div class="search_icon mr16px">
+                            <img src="{{cat.cat_avatar}}" alt="">
+                            <span _ngcontent-c17="" class="boxBlue"></span>
+                        </div>
+                        <div class="settings_text">{{cat.cat_translate[user.profile.settings.lang]||cat.cat_title}}</div>
+                    </div>
+                    <!--<div class="tick_course transform_arrow"></div>-->
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+<div class="row" *ngIf="ch_rules">
+    <div class="create_post_top center_edges m_b_0">
+        <div class="create_post_top_left left_centr ">
+            <a (click)="ch_rules = false"><span class="arrow_exit"></span></a>
+            <div class="arrow_exit_text">{{'Regulation'|translate}}</div>
+        </div>
+    </div>
+    <div class="channel_rules">
+        <h2>{{'BasicRules&reg'|translate}}</h2>
+        <p>
+            {{'BasicRules&reg1'|translate}}
+        </p>
+        <p>{{'BasicRules&reg1'|translate}}</p>
+    </div>
+</div>
+<app-upload-file [show]="uploadAvatar" (photo)="setFile($event);uploadAvatar = false;"
+                 (error)="uploadAvatar = false"></app-upload-file>

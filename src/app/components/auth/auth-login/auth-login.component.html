@@ -1,0 +1,44 @@
+<div class="log_in_madal">
+  <a class="posit_arrow"  [routerLink]="[user.auth?'/main':'/join']"><span class="arrow_exit"></span></a>
+  <div class="doorway_weble  posit_log_in">
+
+
+      <div class="column_centr">
+        <div class="top-login">
+          <div class="doorway_weble_icon"></div>
+          <div class="doorway_weble_text">
+            <h6>{{'enter'|translate}}</h6>
+          </div>
+          <div class="doorway_input_block">
+            <div class="doorway_input_mail mb56">
+              <div class="input-text">E-mail</div>
+              <input class="doorway_input" [(ngModel)]="email" placeholder="E-mail" type="email">
+            </div>
+            <div class="doorway_input_mail">
+              <div class="input-text">{{'Password'|translate}}</div>
+              <input class="doorway_input" [(ngModel)]="pass"  placeholder=" {{'password'|translate}}" type="password">
+            </div>
+          </div>
+        </div>
+        <div class="bottom-login">
+          <div class="create_recovery center_edges">
+            <div class="create_account">
+              <a class="create_account_link"  [routerLink]="['/register']"> {{'Create_account'|translate}}</a>
+
+            </div>
+            <div class="create_line"></div>
+            <div class="create_account forgot_password">
+              <a class="create_account_link"  [routerLink]="['/remind']"> {{'Forget_your_password'|translate}}</a>
+            </div>
+          </div>
+          <div class="perent_enter_weble">
+
+            <input class="input_enter_weble" value="{{'Enter'|translate}}" type="button" (click)="login()">
+
+          </div>
+        </div>
+      </div>
+
+
+  </div>
+</div>

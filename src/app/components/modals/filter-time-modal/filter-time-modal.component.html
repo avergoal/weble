@@ -1,0 +1,67 @@
+<div class="best_modal modal active">
+  <div class="modal_opacity" (click)="mS.filterTimeModal.view = false"></div>
+  <div class="acc_select_block">
+    <div class="row">
+      <h2>{{'Best'|translate}}</h2>
+      <div class="anti_row">
+          <!--<div class="line_accaunt center_edges">-->
+              <!--<div class="form-row center_edges">-->
+                  <!--<input type="radio"  id="radio11" name="acc_choice" class="radio_acc ng-untouched ng-pristine ng-valid">-->
+                  <!--<label for="radio11">-->
+                      <!--<span class="post_top_left">-->
+                          <!--<span class="name_acc">-->
+                              <!--<a class="beginning_near" href="#">-->
+                                 <!--<span class="near_img"></span>-->
+                                  <!--<span class="near_text">{{'new'|translate}}-->
+                                <!--</span>-->
+                                     <!--</a>-->
+                          <!--</span>-->
+                      <!--</span>-->
+                  <!--</label>-->
+              <!--</div>-->
+          <!--</div>-->
+          <div class="line_accaunt center_edges" >
+              <div class="form-row center_edges">
+                  <input type="radio" [value]="'0'" [(ngModel)]="mS.filterTimeModal.type" (change)="change()"  class="radio_acc" id="radio11" name="acc_choice">
+                  <label for="radio11">
+                                                <span class="post_top_left">
+                                                    <span class="name_acc">{{'timeFileter.0'|translate}}</span>
+                                                </span>
+                  </label>
+              </div>
+          </div>
+          <div class="line_accaunt center_edges">
+            <div class="form-row center_edges">
+              <input type="radio"  [value]="'1'" [(ngModel)]="mS.filterTimeModal.type" (change)="change()" class="radio_acc" id="radio" name="acc_choice">
+              <label for="radio">
+                                                <span class="post_top_left">
+                                                    <span class="name_acc">{{'timeFileter.1'|translate}}</span>
+                                                </span>
+              </label>
+            </div>
+          </div>
+          <div class="line_accaunt center_edges" >
+            <div class="form-row center_edges">
+              <input type="radio" class="radio_acc" [value]="'2'" [(ngModel)]="mS.filterTimeModal.type" (change)="change()" id="radio2" name="acc_choice">
+              <label for="radio2">
+                                                <span class="post_top_left">
+                                                    <span class="name_acc">{{'timeFileter.2'|translate}}</span>
+                                                </span>
+              </label>
+            </div>
+          </div>
+
+          <div class="line_accaunt center_edges" >
+            <div class="form-row center_edges">
+              <input type="radio" class="radio_acc" [value]="'3'" [(ngModel)]="mS.filterTimeModal.type" (change)="change()" id="radio4" name="acc_choice">
+              <label for="radio4">
+                                                <span class="post_top_left">
+                                                    <span class="name_acc">{{'timeFileter.3'|translate}}</span>
+                                                </span>
+              </label>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>

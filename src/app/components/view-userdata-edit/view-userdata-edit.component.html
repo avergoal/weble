@@ -1,0 +1,106 @@
+<div id="view_userdata_edit" class="tabs__footer bg-drk-gray">
+  <div class="row">
+      <div class="create_post_top center_edges m_b_0">
+        <div class="create_post_top_left left_centr ">
+          <span   (click)="_location.back()" class="arrow_exit"></span>
+          <div class="arrow_exit_text">{{'Personal_data'|translate}}</div>
+          <div class="pushbutton_user_data">
+            <input class="confirm_user_data" type="button" (click)="saveData()">
+          </div>
+        </div>
+      </div>
+      <div class="avatar_block anti_row column_centr">
+        <!--<input  accept="image/*" type="file"   (change)="setsdsd($event)">-->
+        <div class="pers_img m_b_0  column_centr" (click)="this.uploadAvatar = true">
+          <img *ngIf="user.profile.avatar" src="{{user.profile.avatar}}"  alt="">
+
+          <div class="add_avatar"></div>
+
+          <div class="add_plus" ></div>
+        </div>
+
+      </div>
+      <div class="settings_line left_centr" >{{'Personal_data'|translate}}</div>
+  </div>
+      <div class="settings_background user-padding">
+        <div class="box_input">
+          <input class="input_name" type="text" placeholder="Имя"  [(ngModel)]='userEdit.username' >
+          <p class="input-text">{{'Name'|translate}}</p>
+        </div>
+        <div class="wrap-sex_h3">
+          <div class="sex_h3">
+            <h3>{{'Sex'|translate}}</h3>
+          </div>
+          <div class="radio_sex left_centr">
+            <input type="radio"   [attr.checked]="userEdit.sex=='1' ? true : null" [(ngModel)]='userEdit.sex' class="sex_selection" name="men_women" value="1" id="men"/>
+            <label class="mr-input-setting" for="men">{{'Man'|translate}}</label>
+            <input type="radio"   [attr.checked]="userEdit.sex=='0' ? true : null" [(ngModel)]='userEdit.sex' class="sex_selection" name="men_women" value="0" id="women"/>
+            <label for="women">{{'Female'|translate}}</label>
+          </div>
+        </div>
+        <div class="box_input">
+          <input class="input_name" type="text" placeholder="О себе" [(ngModel)]='userEdit.info'>
+          <p class="input-text">{{'About_oneself'|translate}}</p>
+        </div>
+        <div class="box_input">
+          <input class="input_name" type="text" placeholder="Веб-сайт" [(ngModel)]='userEdit.web'>
+          <p class="input-text">{{'WebSite'|translate}}</p>
+        </div>
+        <div class="box_input">
+          <input class="input_name" type="text" placeholder="E-mail"  [(ngModel)]='userEdit.email'>
+          <p class="input-text">{{'E_mail'|translate}}</p>
+        </div>
+        <div class="box_input">
+          <input class="input_name" type="text" placeholder="Телефон" [(ngModel)]='userEdit.phone'>
+          <p class="input-text">{{'Phone'|translate}}</p>
+        </div>
+      </div>
+      <!--<div class="settings_line left_centr">ЛИЧНЫЕ ДАННЫЕ</div>-->
+      <!--<div class="settings_background">-->
+        <!--<div class="entry_user">-->
+          <!--<div class="size_entry column_left">-->
+            <!--<div class="user_name">-->
+              <!--<p class="user_name_text">Текущий пароль</p>-->
+            <!--</div>-->
+            <!--<div class="entry_name">-->
+              <!--<div class="settings_name">-->
+                <!--<input class="input_name" type="password" placeholder="Текущий пароль"  >-->
+              <!--</div>-->
+            <!--</div>-->
+          <!--</div>-->
+        <!--</div>-->
+        <!--<div class="entry_user">-->
+          <!--<div class="size_entry column_left">-->
+            <!--<div class="user_name">-->
+              <!--<p class="user_name_text">Новый пароль</p>-->
+            <!--</div>-->
+            <!--<div class="entry_name">-->
+              <!--<div class="settings_name">-->
+                <!--<input class="input_name" type="password"-->
+                       <!--placeholder="Новый пароль">-->
+              <!--</div>-->
+            <!--</div>-->
+          <!--</div>-->
+        <!--</div>-->
+        <!--<div class="entry_user">-->
+          <!--<div class="size_entry column_left">-->
+            <!--<div class="user_name">-->
+              <!--<p class="user_name_text">Повторите новый пароль</p>-->
+            <!--</div>-->
+            <!--<div class="entry_name">-->
+              <!--<div class="settings_name">-->
+                <!--<input class="input_name" type="password"-->
+                       <!--placeholder="Повторите новый пароль">-->
+              <!--</div>-->
+            <!--</div>-->
+          <!--</div>-->
+        <!--</div>-->
+      <!--</div>-->
+      <div class="exit_account column_centr" (click)="aS.logOut()">
+        <div class="exit_acc_text">
+          {{'Log_out_account'|translate}}
+        </div>
+      </div>
+
+</div>
+<app-upload-file [show]="uploadAvatar" (photo)="setAvatar($event);uploadAvatar = false" (error)="uploadAvatar = false"></app-upload-file>

@@ -1,0 +1,194 @@
+<div style="display: none">
+  {{'back.now'|translate}}
+  {{'back.min'|translate}}
+  {{'back.hour'|translate}}
+  {{'back.day'|translate}}
+  {{'back.month'|translate}}
+  {{'back.yest'|translate}}
+</div>
+<div class="row" *ngIf="true"
+     infinite-scroll
+     [infiniteScrollDistance]="5"
+     [infiniteScrollUpDistance]="200"
+     [infiniteScrollThrottle]="300"
+     (scrolled)="getNotify()"
+>
+  <!--<div class="settings_line left_centr">СЕГОДНЯ</div>-->
+
+  <span  *ngFor="let item of notify" >
+    <div class="settings_line left_centr" *ngIf="item.isDateText!==''">{{item.isDateText}}</div>
+
+      <div class="settings_background anti_row">
+      <div   class="notice_action top_edges">
+      <div class="perents_post_icon">
+        <div class="post_icon m_r_0">
+          <img *ngIf="item.user" src="{{item.user.avatar}}" alt="">
+          <img *ngIf="item.post&&item.post.channel" src="{{item.post.channel.avatar}}" alt="">
+        </div>
+        <div class="notice_like" *ngIf="item.type==1"></div>
+        <div class="share_icon" *ngIf="item.type==2"></div>
+        <div class="share_icon" *ngIf="item.type==3"></div>
+        <div class="dislike_icon" *ngIf="item.type==11"></div>
+        <div class="dislike_icon" *ngIf="item.type==12"></div>
+      </div>
+      <div class="notice_action_text">
+
+        <div class="denomination_text" [routerLink]="item.url">
+
+          <a *ngIf="item.user">@{{item.user.username}}</a>
+          <a *ngIf="item.post&&item.post.channel"> ~{{item.post.channel.name}}</a>
+          <span *ngIf="item.type==1"> {{'postChannel_type.1'|translate}}</span>
+          <span *ngIf="item.type==2"> {{'postChannel_type.2'|translate}}</span>
+          <span *ngIf="item.type==3"> {{'postChannel_type.3'|translate}}</span>
+          <span *ngIf="item.type==11"> {{'postChannel_type.11'|translate}}</span>
+          <span *ngIf="item.type==12"> {{'postChannel_type.12'|translate}}</span>
+          <!--<span *ngIf="item.type==1"> понравилась ваша публикация</span>-->
+          <!--<span *ngIf="item.type==2"> оставил комментарий</span>-->
+          <!--<span *ngIf="item.type==3"> Подписался на вас</span>-->
+          <!--<span *ngIf="item.type==11"> P_DECLINE</span>-->
+          <!--<span *ngIf="item.type==12"> P_ACCEPT</span>-->
+
+        </div>
+        <div class="post_info">
+          <div class="post_time">
+            <p>{{help.timeOutGenerate(item.time)}}</p>
+          </div>
+          <div class="post_class">
+            <p *ngIf="item.type==1">{{item.post.title}}</p>
+            <p *ngIf="item.type==2">{{'Comment'|translate}}</p>
+            <p *ngIf="item.type==3">{{'Subscriber'|translate}}</p>
+            <p *ngIf="item.type==11">{{'P_DECLINE'|translate}}</p>
+            <p *ngIf="item.type==12">{{'P_ACCEPT'|translate}}</p>
+
+          </div>
+        </div>
+      </div>
+      <div class="notice_post">
+        <img *ngIf="item.post&&item.post.avatar" src="{{item.post.avatar}}" alt="">
+      </div>
+    </div>
+  </div>
+  </span>
+
+
+
+
+
+
+  <!--<div class="settings_line left_centr">ВЧЕРА</div>-->
+  <!--<div class="settings_background anti_row">-->
+    <!--<div class="notice_action left_centr">-->
+      <!--<div class="perents_post_icon">-->
+        <!--<div class="post_icon m_r_0">-->
+          <!--<img src="/assets/img/men_classic.jpg" alt="">-->
+        <!--</div>-->
+      <!--</div>-->
+      <!--<div class="notice_action_text width_80">-->
+
+        <!--<div class="denomination_text">-->
+
+          <!--<a href="#">Homesweethome</a>подписался на вас-->
+
+        <!--</div>-->
+        <!--<div class="post_info">-->
+          <!--<div class="post_time">-->
+            <!--<p>2ч.</p>-->
+          <!--</div>-->
+          <!--<div class="post_class">-->
+            <!--<p>Пост</p>-->
+          <!--</div>-->
+        <!--</div>-->
+      <!--</div>-->
+    <!--</div>-->
+
+  <!--</div>-->
+  <!--<div class="settings_line left_centr">НА ЭТОЙ НЕДЕЛЕ</div>-->
+  <!--<div class="settings_background anti_row">-->
+    <!--<div class="notice_action top_edges">-->
+      <!--<div class="perents_post_icon">-->
+        <!--<div class="post_icon m_r_0">-->
+          <!--<img src="/assets/img/men_classic.jpg" alt="">-->
+        <!--</div>-->
+        <!--<div class="share_icon"></div>-->
+      <!--</div>-->
+      <!--<div class="notice_action_text">-->
+
+        <!--<div class="denomination_text">-->
+
+          <!--<a href="#">Homesweethome</a> поделился вашей записью-->
+
+        <!--</div>-->
+        <!--<div class="post_info">-->
+          <!--<div class="post_time">-->
+            <!--<p>2ч.</p>-->
+          <!--</div>-->
+          <!--<div class="post_class">-->
+            <!--<p>Пост</p>-->
+          <!--</div>-->
+        <!--</div>-->
+      <!--</div>-->
+      <!--<div class="notice_post">-->
+        <!--<img src="/assets/img/hause.jpg" alt="">-->
+      <!--</div>-->
+    <!--</div>-->
+    <!--<div class="notice_action top_edges">-->
+      <!--<div class="perents_post_icon">-->
+        <!--<div class="post_icon m_r_0">-->
+          <!--<img src="/assets/img/men_classic.jpg" alt="">-->
+        <!--</div>-->
+        <!--<div class="share_icon"></div>-->
+      <!--</div>-->
+      <!--<div class="notice_action_text">-->
+
+        <!--<div class="denomination_text">-->
+
+          <!--<a href="#">Homesweethome</a>-->
+          <!--<span class="number_notice">и еще 15 </span>-->
+          <!--понравилась ваша публикация-->
+
+        <!--</div>-->
+        <!--<div class="post_info">-->
+          <!--<div class="post_time">-->
+            <!--<p>2ч.</p>-->
+          <!--</div>-->
+          <!--<div class="post_class">-->
+            <!--<p>Пост</p>-->
+          <!--</div>-->
+        <!--</div>-->
+      <!--</div>-->
+      <!--<div class="notice_post">-->
+        <!--<img src="/assets/img/hause.jpg" alt="">-->
+      <!--</div>-->
+    <!--</div>-->
+  <!--</div>-->
+  <!--<div class="settings_line left_centr">В ЭТОМ МЕСЯЦЕ</div>-->
+  <!--<div class="settings_background anti_row">-->
+    <!--<div class="notice_action top_edges">-->
+      <!--<div class="perents_post_icon">-->
+        <!--<div class="post_icon m_r_0">-->
+          <!--<img src="/assets/img/men_classic.jpg" alt="">-->
+        <!--</div>-->
+        <!--<div class="dislike_icon"></div>-->
+      <!--</div>-->
+      <!--<div class="notice_action_text">-->
+
+        <!--<div class="denomination_text">-->
+
+          <!--<a href="#">Homesweethome</a>понравилась ваша публикация-->
+
+        <!--</div>-->
+        <!--<div class="post_info">-->
+          <!--<div class="post_time">-->
+            <!--<p>2ч.</p>-->
+          <!--</div>-->
+          <!--<div class="post_class">-->
+            <!--<p>Пост</p>-->
+          <!--</div>-->
+        <!--</div>-->
+      <!--</div>-->
+      <!--<div class="notice_post">-->
+        <!--<img src="/assets/img/hause.jpg" alt="">-->
+      <!--</div>-->
+    <!--</div>-->
+  <!--</div>-->
+</div>

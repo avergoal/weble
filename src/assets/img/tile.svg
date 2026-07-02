@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+    <defs>
+        <style>
+            .cls-1{fill:none}.cls-2{fill:#278ec4}
+        </style>
+    </defs>
+    <g id="tile" transform="translate(-42 -91)">
+        <path id="bg" d="M0 0h24v24H0z" class="cls-1" transform="translate(42 91)"/>
+        <path id="tile-2" d="M.722 20A.712.712 0 0 1 0 19.264v-7.37a.712.712 0 0 1 .722-.736h18.556a.712.712 0 0 1 .722.736v7.369a.712.712 0 0 1-.722.736zm.722-1.473h17.113v-5.9H1.444zM.722 8.843A.713.713 0 0 1 0 8.105V.737A.713.713 0 0 1 .722 0h18.556A.712.712 0 0 1 20 .737v7.368a.712.712 0 0 1-.722.737zm.722-1.474h17.113V1.473H1.444z" class="cls-2" data-name="tile" transform="translate(44 93)"/>
+    </g>
+</svg>

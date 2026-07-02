@@ -1,0 +1,55 @@
+<div class="unsubscribe_modal modal" *ngIf="mS.createUsernameModal.view" style="display: block">
+    <div class="content">
+        <div class="log_in_madal">
+            <a class="posit_arrow" (click)="cancel()" ><span class="arrow_exit"></span></a>
+            <div class="doorway_weble  posit_log_in">
+
+                    <div class="column_centr wrapNic">
+                        <div class="doorway_weble_icon"></div>
+                        <div class="top-login">
+                            <div class="doorway_input_mail" [ngClass]="{'error':auth.error||errorusername}">
+                                <div class="input-text">{{'ComeupNickname'|translate}}</div>
+                                <input class="doorway_input" (keyup)="checkName()"  [(ngModel)]="auth.username" placeholder="{{'ComeupNickname'|translate}}" type="text" >
+                                <div class="error-text">
+                                    <p *ngIf="auth.error">
+                                        {{'Use_only_Latin_letters'|translate}}
+                                    </p>
+                                  <p *ngIf="errorusername">
+                                        {{'login_is_busy '|translate}}
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="unsubscribe_text">
+                                <p>{{'Use_only_Latin_letters_desc'|translate}}</p>
+                            </div>
+                        </div>
+                        <div class="bottom-login">
+                            <div class="perent_enter_weble">
+                                <input class="input_enter_weble"  type="button" value="{{'Enter'|translate}}" (click)="setUsername()">
+                            </div>
+                        </div>
+                    </div>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!--<div class="unsubscribe_modal modal" *ngIf="mS.createUsernameModal.view" style="display: block">-->
+<!--<div class="modal_opacity"></div>-->
+<!--<div class="unsubscribe_block column_centr">-->
+<!--<div class="ic">-->
+
+<!--</div>-->
+<!--<div class="unsubscribe_name">Введите логин</div>-->
+<!--<div class="unsubscribe_text">-->
+<!--<input type="text" >-->
+<!--</div>-->
+<!--<div class="unsubscribe_text indent">-->
+<!--<button class="btn" (click)="mS.closeErrorModal()">отмена</button>-->
+<!--<button class="btn" (click)="socialSignIn('facebook')">OK</button>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->

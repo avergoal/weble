@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <!--<base href="/android_asset/www/"/>-->
+  <!--<base href="file:///android_asset/www/"/>-->
+  <!--<base href="./"/>-->
+  <base href="."/>
+  <meta charset="utf-8">
+  <title>WebleNew</title>
+
+  <!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
+  <!--<meta name="viewport" content="initial-scale=1, width=device-width, height=device-height, viewport-fit=cover">-->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+  <script>
+
+
+    window.addEventListener = function () {
+      (window.EventTarget || Window).prototype.addEventListener.apply(this, arguments);
+    };
+    window.removeEventListener = function () {
+      (window.EventTarget || Window).prototype.removeEventListener.apply(this, arguments);
+    };
+    document.addEventListener = function () {
+      (window.EventTarget || Document).prototype.addEventListener.apply(this, arguments);
+    };
+    document.removeEventListener = function () {
+      (window.EventTarget || Document).prototype.removeEventListener.apply(this, arguments);
+    };
+  </script>
+  <script type="text/javascript" src="cordova.js"></script>
+  <title>weble.local</title>
+  <link rel="shortcut icon" href="favicon.ico">
+  <link rel="stylesheet" type="text/css" href="assets/css/slick.css"/>
+  <link rel="stylesheet" type="text/css" href="assets/css/swiper.css"/>
+  <link rel="stylesheet" type="text/css" href="assets/css/slick-theme.css">
+  <link rel="stylesheet" type="text/css" href="assets/css/owl.carousel.min.css"/>
+  <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+
+  <script src="assets/js/exif.js"></script>
+  <script src="assets/js/SocialSharing.js"></script>
+  <script src="assets/js/pinchtozoom.js"></script>
+  <script type="text/javascript" src="assets/js/owl.carousel.min.js"></script>
+  <script src="assets/js/swiper.js"></script>
+
+  <!--<script src="angular.js"></script>-->
+  <!--<script src="angular-touch.js"></script>-->
+  <!--<script src="angular-carousel.js"></script>-->
+  <script type="text/javascript" src="assets/js/jquery-3.3.1.min.js"></script>
+  <script type="text/javascript" src="assets/js/jquery-ui.js"></script>
+  <!--<script type="text/javascript" src="assets/js/jquery-migrate-1.2.1.min.js"></script>-->
+  <!--<script type="text/javascript" src="assets/js/slick.min.js"></script>-->
+
+  <!--<script type="text/javascript" src="assets/js/scripts.js"></script>-->
+
+
+</head>
+<body>
+
+  <app-root>
+    <div style="  position: absolute;
+
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;">
+
+      <img style="width: 50px;height:50px;position: relative;" src="assets/img/spinner.gif">
+    </div>
+  </app-root>
+  <!--<button onclick="capturePhoto();">Capture Photo</button> <br>-->
+  <!--<button onclick="capturePhotoEdit();">Capture Editable Photo</button> <br>-->
+  <!--<button onclick="getPhoto(pictureSource.PHOTOLIBRARY);">From Photo Library</button><br>-->
+  <!--<button onclick="getPhoto(pictureSource.SAVEDPHOTOALBUM);">From Photo Album</button><br>-->
+  <!--<img style="display:none;width:60px;height:60px;" id="smallImage" src="" />-->
+  <!--<img style="display:none;" id="largeImage" src="" />-->
+</body>
+</html>
+<script>
+  // window.addEventListener('keyboardHeightWillChange', function (event) {
+  //   // Describe your logic which will be run each time when keyboard is about to be closed.
+  //   alert("EVENT keyboardHeightWillChange",event.keyboardHeight);
+  // });
+
+  window.deviceReady = false
+  var pictureSource;   // picture source
+  var destinationType; // sets the format of returned value
+  var pictureSource;   // picture source
+  var destinationType; // sets the format of returned value
+
+  // Wait for PhoneGap to connect with the device
+  //
+
+  // PhoneGap is ready to be used!
+  //
+
+
+  // Called when a photo is successfully retrieved
+  //
+  function onPhotoDataSuccess(imageData) {
+    // Uncomment to view the base64 encoded image data
+    // console.log(imageData);
+
+    // Get image handle
+    //
+    var smallImage = document.getElementById('smallImage');
+
+    // Unhide image elements
+    //
+    smallImage.style.display = 'block';
+
+    // Show the captured photo
+    // The inline CSS rules are used to resize the image
+    //
+    smallImage.src = "data:image/jpeg;base64," + imageData;
+  }
+
+  // Called when a photo is successfully retrieved
+  //
+  function onPhotoURISuccess(imageURI) {
+    // Uncomment to view the image file URI
+    // console.log(imageURI);
+
+    // Get image handle
+    //
+    var largeImage = document.getElementById('largeImage');
+
+    // Unhide image elements
+    //
+    largeImage.style.display = 'block';
+
+    // Show the captured photo
+    // The inline CSS rules are used to resize the image
+    //
+    largeImage.src = imageURI;
+  }
+
+  // A button will call this function
+  //
+  function capturePhoto() {
+    console.log('capture photo')
+    // Take picture using device camera and retrieve image as base64-encoded string
+    navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 50 });
+  }
+
+  // A button will call this function
+  //
+  function capturePhotoEdit() {
+    console.log('capture photo edit')
+    // Take picture using device cam era, allow edit, and retrieve image as base64-encoded string
+    navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 20, allowEdit: true });
+  }
+
+  // A button will call this function
+  //
+  function getPhoto(source) {
+    console.log('gtt photo')
+    // Retrieve image file location from specified source
+    navigator.camera.getPicture(onPhotoURISuccess, onFail, { quality: 50,
+      destinationType: destinationType.FILE_URI,
+      sourceType: source });
+  }
+
+  // Called if something bad happens.
+  //
+  function onFail(message) {
+    alert('Failed because: ' + message);
+  }
+
+  document.addEventListener("deviceready", onDeviceReady, false);
+  function onDeviceReady() {
+
+    navigator.globalization.getPreferredLanguage(function(language) {
+      // This will display your device language
+      // console.log('language --',language);
+      // alert(language)
+    }, null);
+    // alert("VARIBLE Keyboard",Keyboard)
+    pictureSource=navigator.camera.PictureSourceType;
+    destinationType=navigator.camera.DestinationType;
+    window.deviceReady = true
+    // alert('ready')
+
+
+    document.addEventListener('backbutton',function(e){
+
+      // e.preventDefault();
+      // alert("history is "+history.length);
+
+      if(history.length>2){
+        navigator.app.backHistory();
+        // e.preventDefault();
+
+      } else{
+        navigator.app.exitApp();
+
+      }
+    },false);
+    var startScreen = screen.height
+
+    // var keyboardHeight = 0
+    // document.getElementsByTagName('focus',()=>{ if (screen.height<startScreen){
+    //   // TRUE
+    //   keyboardHeight = startScreen - screen.height
+    //   document.getElementsByTagName('body')[0].style.height = `calc(100vh - `+keyboardHeight+`px)`
+    // }else{
+    //   document.getElementsByTagName('body')[0].style.height = `auto`
+    //   keyboardHeight = 0
+    //
+    // }})
+    // window.addEventListener('resize', () => {
+    //   if (screen.height<startScreen){
+    //     // TRUE
+    //     keyboardHeight = startScreen - screen.height
+    //     // for (var i = 0; i < document.getElementsByClassName('main-scroll').length; i++) {
+    //     //   document.getElementsByClassName('main-scroll')[i].height = `calc(100vh - `+keyboardHeight+`px)`
+    //     //
+    //     // }
+    //     document.getElementsByTagName('body')[0].style.height = `calc(100vh - `+keyboardHeight+`px)`
+    //
+    //   }else{
+    //     //FALSE
+    //     // for (var i = 0; i < document.getElementsByClassName('main-scroll').length; i++) {
+    //     //   document.getElementsByClassName('main-scroll')[i].height = `100vh`
+    //     //
+    //     // }
+    //     document.getElementsByTagName('body')[0].style.height = `auto`
+    //     keyboardHeight = 0
+    //
+    //   }
+    // });
+
+
+
+  }
+
+</script>

@@ -1,0 +1,55 @@
+
+<div class="sign_up_madal">
+  <a class="posit_arrow"  [routerLink]="['/login']" *ngIf="!user.auth"> <span class="arrow_exit"></span></a>
+  <a class="posit_arrow" *ngIf="user.auth" [routerLink]="['/main']"> <span class="arrow_exit"></span></a>
+
+  <div class="doorway_weble posit_sign_up">
+
+      <div class="column_centr">
+        <div class="top-login">
+          <div class="doorway_weble_icon"></div>
+          <div class="doorway_weble_text">
+            <h6>{{'Create_account'|translate}}</h6>
+          </div>
+          <div class="doorway_input_block">
+            <div class="doorway_input_mail mb56">
+              <div class="input-text">{{'E_mail'|translate}}</div>
+              <input class="doorway_input" [(ngModel)]="email" placeholder="{{'E_mail'|translate}}" type="email">
+            </div>
+            <div class="doorway_input_mail mb56">
+              <div class="input-text">{{'User_name'|translate}}</div>
+              <input class="doorway_input" [(ngModel)]="username" placeholder="{{'User_name'|translate}}" type="text">
+            </div>
+            <div class="doorway_input_mail">
+              <div class="input-text">{{'Password'|translate}}</div>
+              <input class="doorway_input" [(ngModel)]='pass' (keyup)="isValidPass()" placeholder="{{'Password'|translate}}" type="password">
+              <div class="information-password" *ngIf="errorPass">
+                <p>
+                  {{'error.0'|translate}}
+                </p>
+              </div>
+              <div class="error-text" *ngIf="errorPass">
+                <p>
+                  {{'Wrong_password_format'|translate}}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="bottom-login">
+          <div class="create_account width_sign">
+            <a class="create_account_link"  [routerLink]="['/login']">{{'Enter'|translate}}</a>
+          </div>
+          <div class="perent_registration_weble">
+            <input class="input_enter_weble" value="{{'Register'|translate}}" type="button" (click)="reg()">
+
+          </div>
+        </div>
+      </div>
+
+  </div>
+</div>
+
+
+
+

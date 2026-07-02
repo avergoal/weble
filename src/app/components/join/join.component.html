@@ -1,0 +1,53 @@
+<div class="join-pages">
+    <div class="personal_content">
+
+      <div class="tabs__caption">
+        <div class="pasiv"  [ngClass]="{'active':activeTab=='main'}" (click)="activeTab = 'main'" [routerLink]="[user.auth?'/main':'/join']" >{{'Main'|translate}}</div>
+        <div class="pasiv" [ngClass]="{'active':activeTab=='pop'}" [routerLink]="['/main-popular']">{{'Popular'|translate}}</div>
+      </div>
+        <div class="tabs_pers active" >
+            <div class="row">
+                <div class="textJp center">
+                    <h6>{{'Join_Weble'|translate}}</h6>
+                    <p>{{'ToAss_allfea'|translate}}</p>
+                </div>
+                <div class="contentJp">
+                    <div class="item">
+                        <div class="ic jp1--icon"></div>
+                        <div class="leftJp">
+                            <p class="titleCjp">{{'Your_channel'|translate}}</p>
+                            <p class="textCjp">{{'Your_channel_desc'|translate}}</p>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="ic jp2--icon"></div>
+                        <div class="leftJp">
+                            <p class="titleCjp">{{'Comments'|translate}}</p>
+                            <p class="textCjp">{{'Comments_desc'|translate}}</p>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="ic jp3--icon"></div>
+                        <div class="leftJp">
+                            <p class="titleCjp">{{'Assessments'|translate}}</p>
+                            <p class="textCjp">{{'Assessments_desc'|translate}}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="btnJp center">
+                    <div class="perent_join_link">
+                        <a class="join_link column_centr" [routerLink]="['/login']"> {{'Join'|translate}}</a>
+                    </div>
+                    <div class="perent_without_registration">
+                        <a class="join_link" [routerLink]="['/main-popular']"> {{'contWthReg'|translate}}</a>
+                    </div>
+                    <!--<div class="wrap-facebook-btn">-->
+                      <!--<input type="button" (click)="LoginWithFacebook()" value="{{'LoginWithFacebook'|translate}}">-->
+                    <!--</div>-->
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<app-footer></app-footer>

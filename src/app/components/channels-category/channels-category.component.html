@@ -1,0 +1,42 @@
+<div class="content_channels">
+  <div class="channels_page_top">
+    <div class="arrow_exit posit_arrow">
+      <a class="arrow_exit_link" [routerLink]="['/search_chennel']"></a>
+    </div>
+    <div class="row">
+      <div class="pers_top_top">
+        <div class="pers_img channels_img">
+          <img src="{{category.cat_avatar}}" alt="">
+        </div>
+        <h1>
+          {{category.cat_translate[user.profile.settings.lang]||category.cat_title}}
+        </h1>
+      </div>
+      <div class="wrap-publick" *ngFor="let ch of channels">
+        <div class="center_edges">
+          <div class="found_option left_centr">
+            <div class="post_icon_setting">
+              <img src="{{ch.avatar}}" alt="">
+            </div>
+            <div class="found_text">
+              <div class="find_name">
+                <p>~{{ch.name}}</p>
+                <p class="gray-text">{{ch.subscribers}} {{dataService.declination(ch.subscribers,'subscriber')|translate}}</p>
+              </div>
+            </div>
+            <a class="found_option_link" [routerLink]="['/channel_viwe',ch.id]" ></a>
+          </div>
+          <div class="subscription_unsubscribe" (click)="subscribe(ch)" [ngClass]="{'none_subscribed':!ch.is_subscriber,'news_subscribed':ch.is_subscriber}"></div>
+        </div>
+        <div class="gray-text">
+          <p>
+            {{ch.description||ch.title}}
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <app-footer></app-footer>
+</div>
+

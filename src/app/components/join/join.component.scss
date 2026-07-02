@@ -1,0 +1,73 @@
+.my_content {
+  width: 50%;
+}
+h6{
+  margin: 0 0 8px;
+}
+p{
+  font-family: 'Rubik-Regular';
+}
+.center{
+  text-align: center;
+}
+.tabs_pers{
+  padding-top: 24px;
+  padding-bottom: 80px;
+  min-height: calc(100vh - 46px);
+}
+.perent_join_link{
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 25px;
+}
+.perent_without_registration {
+  margin-bottom: 25px;
+  a{
+    color: #278ec4;
+  }
+}
+.wrap-facebook-btn {
+  width: auto;
+  margin: 0 auto;
+  display: inline-block;
+}
+.contentJp{
+  margin: 30px 0;
+  .item{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 25px;
+    &:last-child{
+      margin-bottom: 0;
+    }
+  }
+  .ic{
+    width: 84px;
+    height: 84px;
+    background-size: contain;
+  }
+  .leftJp{
+    width: calc(100% - 84px);
+    padding-left: 20px;
+
+  }
+  .titleCjp{
+    margin-bottom: 10px;
+    font-size: 16px;
+    line-height: 24px;
+  }
+  .textCjp{
+    color: #648895;
+    font-size: 14px;
+    line-height: 18px;
+  }
+
+}
+
+//@each $jp in jp1, jp2, jp3 {
+//  .#{$jp}--icon {
+//    background-image: url('/assets/img/#{$jp}.png');
+//  }
+//}
+

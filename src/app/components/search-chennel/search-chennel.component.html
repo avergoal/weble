@@ -1,0 +1,105 @@
+<div class="tabs_footer">
+    <div class="search_button" [ngClass]="{'active':search_text.length>0}" >
+        <div class="row">
+
+            <div class="search_group_perent search_input anti_row left_centr ">
+                <div class="arrow_exit" (click)="search_text=''">
+                    <!--TODO:при клике на стрелку убрать класс актив с tabs_search tabs anti_row active-->
+
+
+                </div>
+                <div class="search_group search-box left_centr">
+                    <div class="search_img_perents">
+                        <input class="search_img" type="submit">
+                    </div>
+                    <div class="entry_search_perent">
+                        <input class="entry_search" [(ngModel)]='search_text' (keyup)="search()"
+                               placeholder="{{'Find_channel_or_post'|translate}}"
+                               type="text">
+                    </div>
+                </div>
+                <div class="link-creation-chanel">
+                    <a class="link_full" href="#" [routerLink]="[user.auth?'/create-new-channel':'/join']"></a>
+                </div>
+            </div>
+            <div class="tabs_search tabs anti_row " [ngClass]="{'active':search_text.length>0}">
+                <!--TODO:при фокусе на поиск навещать класс active и классу click_search, убрать initial_search и footer -->
+                <div class="tabs__caption shadow_box">
+                    <div class="pasiv" [ngClass]="{'active':type_serch==0}" (click)="type_serch = 0;search()">{{'All'|translate}}</div>
+                    <div class="pasiv" [ngClass]="{'active':type_serch==1}" (click)="type_serch = 1;search()">{{'Channels'|translate}}</div>
+                    <div class="pasiv" [ngClass]="{'active':type_serch==2}" (click)="type_serch = 2;search()">{{'Tags'|translate}}</div>
+                    <div class="pasiv" [ngClass]="{'active':type_serch==3}" (click)="type_serch = 3;search()">{{'People'|translate}}</div>
+                </div>
+                <div class="tabs__content block_search anti_row active" *ngIf="searchArr.length>0">
+                    <div class="center_edges" *ngFor="let item of searchArr">
+                        <div class="found_option left_centr">
+                            <div class="post_icon_setting">
+                                <img src="{{item.img}}" alt="">
+                            </div>
+                            <div class="found_text">
+                                <div class="find_name">
+                                    <p>{{item.name}}</p>
+                                    <p class="gray-text">{{item.count}} {{dataService.declination(item.count,'subscriber')|translate}}</p>
+                                </div>
+                            </div>
+                            <a class="found_option_link" [routerLink]="item.link" href="#"></a>
+                        </div>
+                        <div class="click-chanel" *ngIf="item.type!=='tags'"
+                             (click)="subscribe(item)"
+                             [ngClass]="{'none_subscribed':!item.icon,'news_subscribed':item.icon}"></div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="initial_search" *ngIf="search_text.length==0">
+                <div class="search_suggestions">
+                    <div class="settings_line center_edges">{{'Recommended_channels'|translate}}
+                        <!--<div class="link-search-all">-->
+                            <!--<p>Все</p>-->
+                            <!--<div class="blue-tick"></div>-->
+                        <!--</div>-->
+
+                    </div>
+                    <a href="#"></a>
+                </div>
+                <div class="main_search_slider">
+                    <div class="scroll">
+                        <div class="search_slider">
+                            <div class="options_choices" *ngFor="let item of recommendedCh" [routerLink]="['/channel_viwe',item.id]">
+                                <div class="options_choices_img">
+                                    <img src="{{item.avatar}}" alt="">
+                                </div>
+                                <div class="options_choices_h">
+                                    <h3>~{{item.name}}</h3>
+                                </div>
+                                <div class="options_choices_text">
+                                    <p>{{item.title}}</p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="settings_line left_centr">{{'Top_channels'|translate}}</div>
+                <div class="settings_background anti_row">
+                    <div class="settings_personal" *ngFor="let cat of dataService.categories" [routerLink]="['/channels-category',cat.cat_id]">
+                        <div class="accounts_item search-channel center_edges">
+                            <div class="post_top_left">
+                                <div class="search_icon edit mr16px" >
+                                    <img src="{{cat.cat_avatar}}" alt="">
+                                    <span class="boxBlue"></span>
+                                </div>
+                                <div class="settings_text">{{cat.cat_translate[user.profile.settings.lang]||cat.cat_title}}</div>
+                            </div>
+                            <div class="tick_course transform_arrow"></div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <app-footer *ngIf="search_text.length==0"></app-footer>
+</div>
+

@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+    <defs>
+        <style>
+            .cls-1{fill:none}.cls-2{fill:#278ec4}
+        </style>
+    </defs>
+    <g id="_18_" data-name="18+" transform="translate(-42 -91)">
+        <path id="bg" d="M0 0h24v24H0z" class="cls-1" transform="translate(42 91)"/>
+        <g id="Group_545" data-name="Group 545" transform="translate(42 91)">
+            <path id="Path_216" d="M20.8 9.9h-.5v-.5a.8.8 0 1 0-1.6 0v.5h-.5a.789.789 0 0 0-.8.8.736.736 0 0 0 .8.8h.5v.5a.789.789 0 0 0 .8.8.736.736 0 0 0 .8-.8v-.5h.5a.8.8 0 0 0 0-1.6z" class="cls-2" data-name="Path 216" transform="translate(2.4 1.194)"/>
+            <path id="Path_217" d="M21.843 15.556a.821.821 0 0 0-1.12.444 10.18 10.18 0 0 1-9.073 5.667 10 10 0 1 1 0-20 9.911 9.911 0 0 1 8.96 5.555.779.779 0 0 0 1.12.333.767.767 0 0 0 .336-1.111A11.125 11.125 0 0 0 11.761 0a11.667 11.667 0 1 0 10.53 16.778.9.9 0 0 0-.448-1.222z" class="cls-2" data-name="Path 217"/>
+            <path id="Path_218" d="M7.3 15.2a.789.789 0 0 0 .8-.8V6.9a.789.789 0 0 0-.8-.8h-1a.789.789 0 0 0-.8.8.736.736 0 0 0 .8.8h.3v6.8a.684.684 0 0 0 .7.7z" class="cls-2" data-name="Path 218" transform="translate(.695 1.196)"/>
+            <path id="Path_219" d="M9.9 6.2a.789.789 0 0 0-.8.8v7.6a.789.789 0 0 0 .8.8h3.8a.789.789 0 0 0 .8-.8V6.9a.789.789 0 0 0-.8-.8H9.9zm.8 1.5H13V10h-2.3zm2.2 6h-2.3v-2.3h2.3z" class="cls-2" data-name="Path 219" transform="translate(1.348 1.217)"/>
+        </g>
+    </g>
+</svg>

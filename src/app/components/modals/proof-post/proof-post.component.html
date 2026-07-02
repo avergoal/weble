@@ -1,0 +1,87 @@
+<div class="unsubscribe_modal modal" *ngIf="mS.proofPostModal.view" style="display: block">
+  <div class="modal_opacity"></div>
+  <div class="moderModal">
+    <div class="row" >
+      <div class="page_top center_edges m_b_24">
+        <div class="create_post_top_left left_centr">
+          <div class="cross_exit">
+            <a class="link_footer" (click)="cancel()"></a>
+          </div>
+          <div class="arrow_exit_text" *ngIf="mS.proofPostModal.data['val']==true">{{'Approve_post'|translate}}</div>
+          <div class="arrow_exit_text" *ngIf="mS.proofPostModal.data['val']!=true">{{'Reject_post'|translate}}</div>
+        </div>
+        <input class="confirm_user_data" type="button" (click)="proof()">
+      </div>
+      <div class="form_b m_b_15">
+        <h2 *ngIf="mS.proofPostModal.data['val']==true">
+          {{'Choose_a_reason'|translate}}
+        </h2>
+        <h2 *ngIf="mS.proofPostModal.data['val']!=true">
+          {{'Reason_rejection'|translate}}
+        </h2>
+      </div>
+      <div class="complain_modal_middle" *ngIf="mS.proofPostModal.data['val']==true">
+        <label class="radio_push left_centr">
+          <input type="radio" [(ngModel)]="opt" [value]="0" name="like_dislike">
+          <div class="push_text">{{'proof_types._0'|translate}}</div>
+        </label>
+        <label class="radio_push left_centr">
+          <input type="radio" [(ngModel)]="opt" [value]="1" name="like_dislike">
+          <div class="push_text">{{'proof_types._1'|translate}}</div>
+        </label>
+        <label class="radio_push left_centr">
+          <input type="radio" [(ngModel)]="opt" [value]="2" name="like_dislike">
+          <div class="push_text">{{'proof_types._2'|translate}}</div>
+        </label>
+        <label class="radio_push left_centr">
+          <input type="radio" [(ngModel)]="opt" [value]="3" name="like_dislike">
+          <div class="push_text">{{'proof_types._3'|translate}}</div>
+        </label>
+        <label class="radio_push left_centr">
+          <input type="radio" [(ngModel)]="opt" [value]="4" name="like_dislike">
+          <div class="push_text">{{'proof_types._4'|translate}}</div>
+        </label>
+      </div>
+      <div class="complain_modal_middle" *ngIf="mS.proofPostModal.data['val']==false">
+        <label class="radio_push left_centr">
+          <input type="radio" [(ngModel)]="opt" [value]="10" name="like_dislike">
+          <div class="push_text">{{'proof_types._10'|translate}}</div>
+        </label>
+        <label class="radio_push left_centr">
+          <input type="radio" [(ngModel)]="opt" [value]="11" name="like_dislike">
+          <div class="push_text">{{'proof_types._11'|translate}}</div>
+        </label>
+        <label class="radio_push left_centr">
+          <input type="radio" [(ngModel)]="opt" [value]="12" name="like_dislike">
+          <div class="push_text">{{'proof_types._12'|translate}}</div>
+        </label>
+        <label class="radio_push left_centr">
+          <input type="radio" [(ngModel)]="opt" [value]="13" name="like_dislike">
+          <div class="push_text">{{'proof_types._13'|translate}}</div>
+        </label>
+        <label class="radio_push left_centr">
+          <input type="radio" [(ngModel)]="opt" [value]="14" name="like_dislike">
+          <div class="push_text">{{'proof_types._14'|translate}}</div>
+        </label>
+      </div>
+    </div>
+    <div class="entry_text br-top">
+      <textarea class="text_post" cols="30" rows="12" [(ngModel)]="comment" type="text"></textarea>
+      <p class="initial_text">{{'Comment'|translate}}</p>
+      <div class="wrap-character-count">
+        <div class="row">
+          <div class="character-count gray-text">
+            {{comment.length}}
+          </div>
+          <div class="gray-text">
+            /300
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+
+  </div>
+</div>
+

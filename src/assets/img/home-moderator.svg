@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" id="home" viewBox="0 0 24 24">
+    <defs>
+        <style>
+            .cls-1{fill:none}.cls-2{fill:#278ec4}
+        </style>
+    </defs>
+    <g id="Layer_1" data-name="Layer 1">
+        <path id="Rectangle_293" d="M0 0h24v24H0z" class="cls-1" data-name="Rectangle 293"/>
+        <path id="Path_243" d="M18.06 13a.75.75 0 0 0-.75.75v6.49H6.69v-6.48a.75.75 0 0 0-1.5 0V21a.75.75 0 0 0 .75.75h12.12a.76.76 0 0 0 .75-.75v-7.24a.75.75 0 0 0-.75-.76z" class="cls-2" data-name="Path 243"/>
+        <path id="Path_244" d="M22.54 12.72l-10-10.24a.78.78 0 0 0-1.08 0l-10 10.24a.75.75 0 0 0 1.06 1.06L12 4.07l9.46 9.7A.76.76 0 0 0 22 14a.73.73 0 0 0 .52-.21.75.75 0 0 0 .02-1.07z" class="cls-2" data-name="Path 244"/>
+    </g>
+</svg>

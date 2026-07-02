@@ -1,0 +1,38 @@
+<div  class="pers_coment initial_post" *ngFor="let item of comments" >
+  <div class="row">
+    <div class="pers_comment_top">
+      <div class="pers_comment_icon">
+        <img src="{{item.user.avatar}}" alt="">
+      </div>
+      <div class="pers_comment_post" *ngIf="item.channel">~ {{item.channel.name}} •</div>
+      <div class="post_class color_black" *ngIf="item.user"><p>@{{item.user.username}} </p></div>
+      <div class="post_class color_black" [routerLink]="['/post-detail',item.post.id]">
+        <!--<p>{{item.post.title}}</p>-->
+      </div>
+    </div>
+    <div class="pers_comment_middle" [routerLink]="['/post-detail',item.post.id]">
+      <div class="denomination_pers_comment">
+        <h4>{{item.post.title}}</h4>
+      </div>
+    </div>
+    <div class="pers_comment_bottom" [routerLink]="['/post-detail',item.post.id]">
+      <div class="my_comment">
+        <p>{{item.text}} </p>
+      </div>
+      <div class="my_rating" *ngIf="true">
+        <div class="someone_like m_r_30">
+          <div class="like size_like_icon"></div>
+          <div class="someone_number_like">{{item.like||0}}</div>
+        </div>
+        <div class="someone_dislike m_r_30">
+          <div class="dislike size_like_icon"></div>
+          <div class="someone_number_like">{{item.dislike||0}}</div>
+        </div>
+        <div class="someone_repost">
+          <div class="repost size_like_icon"></div>
+          <div class="someone_number_like">{{item.sharing||0}}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

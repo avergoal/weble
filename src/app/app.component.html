@@ -1,0 +1,152 @@
+<div *ngIf="false">
+  {{'subscriber._0'|translate}}
+  {{'subscriber._1'|translate}}
+  {{'subscriber._2'|translate}}
+
+  {{'publication._0'|translate}}
+  {{'publication._1'|translate}}
+  {{'publication._2'|translate}}
+
+  {{'subscription._0'|translate}}
+  {{'subscription._1'|translate}}
+  {{'subscription._2'|translate}}
+
+  {{'errors._1'|translate}}
+  {{'errors._2'|translate}}
+  {{'errors._3'|translate}}
+  {{'errors._4'|translate}}
+
+  {{'errors._20'|translate}}
+  {{'errors._21'|translate}}
+  {{'errors._22'|translate}}
+  {{'errors._51'|translate}}
+
+  {{'errors._101'|translate}}
+  {{'errors._102'|translate}}
+  {{'errors._103'|translate}}
+
+  {{'errors._150'|translate}}
+  {{'errors._151'|translate}}
+  {{'errors._152'|translate}}
+  {{'errors._153'|translate}}
+  {{'errors._154'|translate}}
+  {{'errors._155'|translate}}
+  {{'errors._156'|translate}}
+  {{'errors._157'|translate}}
+  {{'errors._158'|translate}}
+  {{'errors._159'|translate}}
+  {{'errors._160'|translate}}
+  {{'errors._161'|translate}}
+  {{'errors._162'|translate}}
+  {{'errors._163'|translate}}
+  {{'errors._164'|translate}}
+  {{'errors._165'|translate}}
+  {{'errors._166'|translate}}
+  {{'errors._167'|translate}}
+  {{'errors._168'|translate}}
+  {{'errors._169'|translate}}
+  {{'errors._170'|translate}}
+
+  {{'errors._200'|translate}}
+  {{'errors._201'|translate}}
+
+  {{'errors._250'|translate}}
+  {{'errors._251'|translate}}
+  {{'errors._252'|translate}}
+  {{'errors._253'|translate}}
+  {{'errors._254'|translate}}
+  {{'errors._255'|translate}}
+  {{'errors._256'|translate}}
+  {{'errors._257'|translate}}
+  {{'errors._258'|translate}}
+  {{'errors._259'|translate}}
+  {{'errors._260'|translate}}
+  {{'errors._261'|translate}}
+  {{'errors._262'|translate}}
+  {{'errors._263'|translate}}
+  {{'errors._264'|translate}}
+  {{'errors._265'|translate}}
+
+  {{'errors._300'|translate}}
+
+  {{'errors._350'|translate}}
+  {{'errors._351'|translate}}
+  {{'errors._352'|translate}}
+  {{'errors._353'|translate}}
+  {{'errors._354'|translate}}
+  {{'errors._355'|translate}}
+  {{'errors._356'|translate}}
+  {{'errors._357'|translate}}
+  {{'errors._358'|translate}}
+  {{'errors._359'|translate}}
+  {{'errors._360'|translate}}
+  {{'errors._361'|translate}}
+  {{'errors._362'|translate}}
+  {{'errors._363'|translate}}
+
+  {{'errors._400'|translate}}
+  {{'errors._401'|translate}}
+  {{'errors._402'|translate}}
+
+  {{'errors._450'|translate}}
+  {{'errors._451'|translate}}
+  {{'errors._452'|translate}}
+  {{'errors._453'|translate}}
+  {{'errors._454'|translate}}
+  {{'errors._455'|translate}}
+  {{'errors._456'|translate}}
+  {{'errors._457'|translate}}
+  {{'errors._458'|translate}}
+  {{'errors._459'|translate}}
+
+  {{'errors._550'|translate}}
+  {{'errors._551'|translate}}
+  {{'errors._552'|translate}}
+  {{'errors._553'|translate}}
+  {{'errors._554'|translate}}
+
+  {{'errors._600'|translate}}
+
+  {{'errors._650'|translate}}
+  {{'errors._651'|translate}}
+  {{'errors._652'|translate}}
+  {{'errors._653'|translate}}
+  {{'errors._654'|translate}}
+  {{'errors._655'|translate}}
+  {{'errors._656'|translate}}
+  {{'errors._657'|translate}}
+  {{'errors._658'|translate}}
+  {{'errors._659'|translate}}
+  {{'errors._660'|translate}}
+  {{'errors._661'|translate}}
+  {{'errors._662'|translate}}
+
+  {{'errors._750'|translate}}
+  {{'errors._751'|translate}}
+  {{'errors._752'|translate}}
+  {{'errors._753'|translate}}
+  {{'errors._754'|translate}}
+
+
+</div>
+
+<error-message [show]="mS.errorModal.view" ></error-message>
+<app-delete-post [show]="mS.deletePostModal.view" ></app-delete-post>
+<app-delete-comment [show]="mS.deleteCommentModal.view" ></app-delete-comment>
+<app-delete-moderator [show]="mS.deleteModeratorModal.view" ></app-delete-moderator>
+<app-proof-post [show]="mS.proofPostModal.view" ></app-proof-post>
+<app-create-username ></app-create-username>
+<view-post-type [type]="mS.viewPostType" (changeType)="mS.viewPostType = $event"></view-post-type>
+<app-swich-account [show]="mS.swichAccountModal.view" ></app-swich-account>
+<app-post-share *ngIf="mS.postShareModal.view"></app-post-share>
+<app-subscribe-modal *ngIf="mS.subscribeModal.view" [show]="mS.subscribeModal.view" ></app-subscribe-modal>
+<app-report-modal *ngIf="mS.reportModal.view" [show]="mS.reportModal.view" [type]="mS.reportModal.type" [id]="mS.reportModal.id" ></app-report-modal>
+
+<app-filter-time-modal *ngIf="mS.filterTimeModal.view" (changeType)="mS.filterTimeModal.emit.emit($event)"></app-filter-time-modal>
+<app-set-lang-app  *ngIf="mS.setLangModal.view" [status]="mS.setLangModal.view"></app-set-lang-app>
+
+<router-outlet *ngIf="!user.loading"></router-outlet>
+
+<!--<app-footer *ngIf="authService.checkToken()&&!authService.loading"></app-footer>-->
+
+

@@ -1,0 +1,94 @@
+<div class="group_chat_info">
+  <div class="row">
+    <div class="page_top center_edges">
+      <div class="create_post_top_left left_centr">
+        <div class="arrow_exit">
+          <a class="arrow_exit_link" [routerLink]="['/create_group_chat']"></a>
+        </div>
+        <div class="arrow_exit_text">Информация</div>
+      </div>
+    </div>
+    <div class="group_chat_top">
+      <div class="name-group m_b_24">
+        <p>
+          Имя группы:
+          <span> Планы на пятницу</span>
+        </p>
+      </div>
+      <div class="anti_row">
+        <label class="checkbox_push chat_info_check left_centr">
+          <input type="checkbox">
+          <span class="checkbox__text w-full"> <span class="width-text">Выключить уведомления</span></span>
+        </label>
+      </div>
+    </div>
+  </div>
+  <div class="group_chat_middle">
+    <div class="center_edges participants m_b_8">
+      <div class="fz-16">Участники</div>
+      <div class="link-creation-chanel"></div>
+    </div>
+    <div class="center_edges">
+      <div class="found_option left_centr">
+        <div class="post_icon_setting">
+          <img src="/assets/img/men_classic.jpg" alt="">
+        </div>
+        <div class="found_text">
+          <div class="find_name">
+            <p>@Дмитрий Иванов</p>
+            <p class="gray-text">Создатель (это вы)</p>
+          </div>
+        </div>
+        <a class="found_option_link" href="foreign_page.html"></a>
+      </div>
+    </div>
+    <div class="center_edges">
+      <div class="found_option left_centr">
+        <div class="post_icon_setting">
+          <img src="/assets/img/men_classic.jpg" alt="">
+        </div>
+        <div class="found_text">
+          <div class="find_name">
+            <p>@Дмитрий Иванов</p>
+            <p class="gray-text">Была в сети 2 ч. назад</p>
+          </div>
+        </div>
+        <a class="found_option_link" href="foreign_page.html"></a>
+      </div>
+      <div class="delete_ic"></div>
+    </div>
+    <div class="center_edges">
+      <div class="found_option left_centr">
+        <div class="post_icon_setting">
+          <img src="/assets/img/men_classic.jpg" alt="">
+        </div>
+        <div class="found_text">
+          <div class="find_name">
+            <p>@Дмитрий Иванов</p>
+            <p class="gray-text">В сети</p>
+          </div>
+        </div>
+        <a class="found_option_link" href="foreign_page.html"></a>
+      </div>
+      <div class="delete_ic"></div>
+    </div>
+  </div>
+  <div class="group_chat_bottom">
+    <div class="color-red f-rubik m_b_24 delete-btn">
+      <p>Удалить группу</p>
+      <p>Выйти из группы</p>
+      <!--TODO:Выйти из группы и После выхода из группы, вы потеряете возможность писать сообщения в ней, пока снова не вступите в группу. этот текст когда ты участник группы-->
+      <!--TODO:Удалить группу и После выхода из группы, вы потеряете возможность писать сообщения в ней, пока снова не вступите в группу. И див delete_icю  это когда ты админ группы-->
+    </div>
+    <div class="gray_color fz-12 f-rubik">
+      <p>
+        После удаления группы, вся история сообщений будет потеряна, как для создателя группы, так и для вех её
+        участников.
+      </p>
+      <p>
+        После выхода из группы, вы потеряете возможность писать сообщения в ней, пока снова не вступите
+        в группу.
+      </p>
+    </div>
+  </div>
+</div>

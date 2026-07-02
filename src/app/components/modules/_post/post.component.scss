@@ -1,0 +1,37 @@
+@import "../../../../assets/materialize/css/materialize.min.css";
+.main_slider {
+  width: calc(100% + 32px);
+  margin-left: -16px;
+  overflow: hidden;
+  display: block;
+}
+.item-img{
+  position: relative;
+  padding-top: 56%;
+  img{
+    object-fit: initial;
+  }
+}
+
+.blurNf{
+  filter: blur(2px);
+}
+
+
+h3 {
+  font-size: 16px;
+  line-height: 19px;
+}
+h2 {
+  margin: 0;
+  font-size: 14px;
+  line-height: 17px;
+  font-weight: 100;
+}
+.row {
+  margin-bottom: 0;
+}
+
+.box-main-modal {
+  width: 100%;
+}
