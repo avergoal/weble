@@ -1,0 +1,13 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appID": "P84Q3YC88U.weble.mobile.ios",
+        "paths": [
+         "*", "/"
+        ]
+      }
+    ]
+  }
+}

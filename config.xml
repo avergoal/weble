@@ -96,5 +96,4 @@
     <plugin name="cordova-plugin-globalization" spec="^1.11.0" />
     <plugin name="cordova-plugin-keyboard" spec="^1.2.0" />
     <engine name="ios" spec="^5.0.1" />
-    <engine name="android" spec="^8.1.0" />
 </widget>
