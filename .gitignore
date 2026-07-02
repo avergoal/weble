@@ -49,3 +49,9 @@ platforms
 e2e
 
 /www/
+
+# Local build artifacts
+build-log.txt
+builds/
+*.apk
+*.aab
